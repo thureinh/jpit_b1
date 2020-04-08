@@ -25,6 +25,8 @@
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+  <!-- add css -->
+  @yield('css')
 
 </head>
 
@@ -47,10 +49,9 @@
   <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/venobox/venobox.min.js') }}"></script>
-
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
-
+  <!-- add javascript -->
+  @yield('js')
 </body>
-
 </html>

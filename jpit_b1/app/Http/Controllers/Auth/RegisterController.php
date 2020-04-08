@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -30,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    // protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -51,7 +52,8 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'firstname' => ['required', 'string', 'max:255'],
+            'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
@@ -67,15 +69,28 @@ class RegisterController extends Controller
     {
         $path = Storage::putFile('profile_images', $data['profile']);
         return User::create([
-            'profile_pic' => $data,
-            'name' => $data['name'],
+            'profile_pic' => $path,
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
             'dateofbirth' => $data['dob'],
             'phone' => $data['phone'],
             'address' => $data['address'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'batch_no' => $data['batch_no'],
-            'roll_no' => $data['roll_no']
+            'batch_no' => $data['batch'],
+            'roll_no' => $data['roll']
         ]);
+    }
+    /**
+     * The user has been registered.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function registered(Request $request, $user)
+    {
+        $this->guard()->logout();
+        return redirect()->route('login');
     }
 }
