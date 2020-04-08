@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->integer('batch_no');
             $table->integer('roll_no');
-            $table->boolean('is_Teacher');
+            $table->boolean('is_Teacher')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
