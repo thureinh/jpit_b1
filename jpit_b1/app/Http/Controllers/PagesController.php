@@ -10,4 +10,14 @@ class PagesController extends Controller
     {
     	return view('index');
     }
+
+    public function studenthome()
+    {
+    	return view('studenthome');
+    }
+
+    public function senseihome()
+    {
+    	return view('senseihome');
+    }
 }

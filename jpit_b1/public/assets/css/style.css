@@ -1197,3 +1197,115 @@ body.mobile-nav-active #mobile-nav-toggle {
 .fa-facebook-f:before {
 content: "\f39e"!important;
 }
+
+/*--------------------------------------------------------------
+# Dashboard
+--------------------------------------------------------------*/
+#maincontent {
+  padding: 60px 0;
+}
+
+#maincontent .sub-menu {
+  border-right: 0.5px solid #f1f1f1;
+}
+
+#maincontent .sub-menu ul li {
+  padding: 20px 15px;
+  border: 0;
+  font-family: 'Baloo Thambi 2', cursive;
+}
+
+#maincontent .sub-menu ul li a {
+  font-weight: bold;
+  color: #777;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+
+#maincontent .sub-menu ul li:hover {
+  background-color: #EEF5F8;
+}
+
+#maincontent .sub-menu .active a {
+  color: #444;
+}
+
+#maincontent .sub-menu .active {
+  background-color: #C7E3F0;
+}
+
+#maincontent .sub-menu .active:hover {
+  background-color: #95CEE2;
+}
+
+#maincontent .sub-menu li {
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  border-bottom-right-radius: 1.6em;
+  border-top-right-radius: 1.6em;
+}
+
+#maincontent .sub-menu ul li a i {
+  padding-right: 20px; 
+}
+
+#maincontent .sub-menu ul li>span {
+  background-color: #6CC3E1;
+  color: #fff;
+  padding-top: 5px;
+}
+
+#maincontent h5 {
+  color: #888;
+  font-family: 'Nunito';
+  font-size: 18px;
+}
+
+#maincontent .card .numbers p {
+  color: #777;
+}
+
+#maincontent .card {
+  border-radius: 12px;
+  box-shadow: 0 6px 10px -4px rgba(0,0,0,.15);
+  margin-bottom: 40px;
+}
+
+#maincontent .card .numbers span {
+  font-size: 35px;
+  margin-top: -5px;
+  display: inline-block;
+  font-family: 'Baloo Thambi 2', cursive;
+}
+
+#maincontent .card .card-body>div {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.green {
+  color: #89C993;
+}
+
+.yellow {
+  color: #F8D236;
+}
+
+.sub-menu-nav {
+  display: none !important;
+}
+
+@media (max-width: 768px) {
+  #maincontent .sub-menu {
+    display: none;
+  }
+
+  #maincontent {
+    padding: 40px 0;
+  }
+
+  .sub-menu-nav {
+    display: block !important;
+  }
+}

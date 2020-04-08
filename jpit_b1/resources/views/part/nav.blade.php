@@ -35,6 +35,31 @@
             </ul>
           </li>
           <li><a href="#contact">Contact Us</a></li>
+
+          <hr class="dropdown-divider" class="sub-menu-nav">
+
+          <li class="sub-menu-nav"><a href="#">Dashboard</a></li>
+          <li class="sub-menu-nav"><a href="#">Vocabulary</a></li>
+          <li class="sub-menu-nav"><a href="#">Grammar</a></li>
+          <li class="sub-menu-nav"><a href="#">Kanji</a></li>
+          <li class="sub-menu-nav"><a href="#">Grammar</a></li>
+          <li class="sub-menu-nav"><a href="#">Reading</a></li>
+          <li class="sub-menu-nav"><a href="#">Listening</a></li>
+          <li class="sub-menu-nav"><a href="#">Writing</a></li>
+
+          <!-- for sensei nav -->
+          <!-- <li class="sub-menu-nav"><a href="#">Dashboard</a></li>
+          <li class="sub-menu-nav"><a href="#">Test</a></li>
+          <li class="sub-menu-nav"><a href="#">Vocabulary</a></li>
+          <li class="sub-menu-nav"><a href="#">Grammar</a></li>
+          <li class="sub-menu-nav"><a href="#">Kanji</a></li>
+          <li class="sub-menu-nav"><a href="#">Grammar</a></li>
+          <li class="sub-menu-nav"><a href="#">Reading</a></li>
+          <li class="sub-menu-nav"><a href="#">Listening</a></li>
+          <li class="sub-menu-nav"><a href="#">Writing</a></li>
+          <li class="sub-menu-nav"><a href="#">Student</a></li>
+          <li class="sub-menu-nav"><a href="#">Teacher</a></li> -->
+
         </ul>
       </nav>
     </div>

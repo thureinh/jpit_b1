@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PagesController@index')->name('index');
+
+Route::get('/studenthome', 'PagesController@studenthome')->name('studenthome');
+
+Route::get('/senseihome', 'PagesController@senseihome')->name('senseihome');
+
 Auth::routes();
-Route::resource('students', 'StudentController');
+
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('students', 'StudentController');
