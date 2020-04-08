@@ -6,9 +6,9 @@
         <i class="fas fa-code pl-3"></i> Japanese & IT Batch - 1 
       </div>
       <div class="social-links float-right">
-        <a href="https://www.facebook.com/micbootcamp/" class="facebook" target="_blank"><i class="fa fa-facebook"></i></a>
+        <a href="https://www.facebook.com/micbootcamp/" class="facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
         <a href="https://www.messenger.com/" class="messenger" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
-        <a href="https://www.skype.com/en/" class="skype" target="_blank"><i class="fa fa-skype"></i></a>
+        <a href="https://www.skype.com/en/" class="skype" target="_blank"><i class="fab fa-skype"></i></a>
       </div>
     </div>
   </section>
@@ -18,12 +18,12 @@
   <header id="header">
     <div class="container">
       <div id="logo" class="pull-left">
-        <h1><a href="index.html" class="scrollto">JP Online Corn<span>er</span></a></h1>
+        <h1><a href="{{route('index')}}" class="scrollto">JP Online Corn<span>er</span></a></h1>
       </div>
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#topbar">Home</a></li>
+          <li class="menu-active"><a href="{{route('index')}}">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#course">Courses</a></li>
           <li class="menu-has-children"><a href="#">Drop Down</a>
