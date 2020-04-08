@@ -64,7 +64,7 @@
             <div class="box wow fadeInLeft">
               <div class="icon"><i class="fas fa-clipboard-list"></i></div>
               <h4 class="title">Vocabulary</h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident etiro rabeta lingo.</p>
+              <p class="description">Double your Japanese vocabularies with different topic every day, and practice with recommended questions to remember them.</p>
             </div>
           </div>
 
@@ -72,7 +72,7 @@
             <div class="box wow fadeInRight">
               <div class="icon"><i class="far fa-bookmark"></i></div>
               <h4 class="title">Kanji</h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata nodera clas.</p>
+              <p class="description">View kanji words with its Konyomi and Onyomi, including example sentences and various word lists, which advance your Japanese skills.</p>
             </div>
           </div>
 
@@ -80,7 +80,7 @@
             <div class="box wow fadeInLeft" data-wow-delay="0.2s">
               <div class="icon"><i class="fas fa-spell-check"></i></div>
               <h4 class="title">Grammar</h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur trinige zareta lobur trade.</p>
+              <p class="description">Learn grammar with interesting explanations and patterns, where you can also take practice questions as in JLPT exam.</p>
             </div>
           </div>
 
@@ -88,7 +88,7 @@
             <div class="box wow fadeInRight" data-wow-delay="0.2s">
               <div class="icon"><i class="fas fa-book-open"></i></div>
               <h4 class="title">Reading</h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum rideta zanox satirente madera</p>
+              <p class="description">Improve your reading speed with this application and practice or take a test with different reading paragraph to know your skills.</p>
             </div>
           </div>
 
@@ -96,7 +96,7 @@
             <div class="box wow fadeInLeft" data-wow-delay="0.2s">
               <div class="icon"><i class="fas fa-headphones-alt"></i></div>
               <h4 class="title">Listening</h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur trinige zareta lobur trade.</p>
+              <p class="description">Listen Japanese audios and mp3 to be friendly with Japanese speaking. Listening skills can be also checked with practice questions and exams.</p>
             </div>
           </div>
 
@@ -104,7 +104,7 @@
             <div class="box wow fadeInRight" data-wow-delay="0.2s">
               <div class="icon"><i class="fas fa-pen-alt"></i></div>
               <h4 class="title">Writing</h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum rideta zanox satirente madera</p>
+              <p class="description">Create flawless writings with interesting topic, suggested by the teacher. Marks can be viewed in each writing, checked by teacher.</p>
             </div>
           </div>
 
@@ -124,58 +124,58 @@
         <div class="owl-carousel testimonials-carousel">
 
           <div class="testimonial-item">
+            <img src="{{ asset('assets/img/testimonial-1.jpg') }}" class="testimonial-img" alt="">
+            <h3>Saul Goodman</h3>
+            <h4 class="mb-4">Ceo &amp; Founder</h4>
             <p>
               <img src="{{ asset('assets/img/quote-sign-left.png') }}" class="quote-sign-left" alt="">
               Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
               <img src="{{ asset('assets/img/quote-sign-right.png') }}" class="quote-sign-right" alt="">
             </p>
-            <img src="{{ asset('assets/img/testimonial-1.jpg') }}" class="testimonial-img" alt="">
-            <h3>Saul Goodman</h3>
-            <h4>Ceo &amp; Founder</h4>
           </div>
 
           <div class="testimonial-item">
+            <img src="{{ asset('assets/img/testimonial-2.jpg') }}" class="testimonial-img" alt="">
+            <h3>Sara Wilsson</h3>
+            <h4 class="mb-4">Designer</h4>
             <p>
               <img src="{{ asset('assets/img/quote-sign-left.png') }}" class="quote-sign-left" alt="">
               Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
               <img src="{{ asset('assets/img/quote-sign-right.png') }}" class="quote-sign-right" alt="">
             </p>
-            <img src="{{ asset('assets/img/testimonial-2.jpg') }}" class="testimonial-img" alt="">
-            <h3>Sara Wilsson</h3>
-            <h4>Designer</h4>
           </div>
 
           <div class="testimonial-item">
+            <img src="{{ asset('assets/img/testimonial-3.jpg') }}" class="testimonial-img" alt="">
+            <h3>Jena Karlis</h3>
+            <h4 class="mb-4">Store Owner</h4>
             <p>
               <img src="{{ asset('assets/img/quote-sign-left.png') }}" class="quote-sign-left" alt="">
               Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
               <img src="{{ asset('assets/img/quote-sign-right.png') }}" class="quote-sign-right" alt="">
             </p>
-            <img src="{{ asset('assets/img/testimonial-3.jpg') }}" class="testimonial-img" alt="">
-            <h3>Jena Karlis</h3>
-            <h4>Store Owner</h4>
           </div>
 
           <div class="testimonial-item">
+            <img src="{{ asset('assets/img/testimonial-4.jpg') }}" class="testimonial-img" alt="">
+            <h3>Matt Brandon</h3>
+            <h4 class="mb-4">Freelancer</h4>
             <p>
               <img src="{{ asset('assets/img/quote-sign-left.png') }}" class="quote-sign-left" alt="">
               Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
               <img src="{{ asset('assets/img/quote-sign-right.png') }}" class="quote-sign-right" alt="">
             </p>
-            <img src="{{ asset('assets/img/testimonial-4.jpg') }}" class="testimonial-img" alt="">
-            <h3>Matt Brandon</h3>
-            <h4>Freelancer</h4>
           </div>
 
           <div class="testimonial-item">
+            <img src="{{ asset('assets/img/testimonial-5.jpg') }}" class="testimonial-img" alt="">
+            <h3>John Larson</h3>
+            <h4 class="mb-4">Entrepreneur</h4>
             <p>
               <img src="{{ asset('assets/img/quote-sign-left.png') }}" class="quote-sign-left" alt="">
               Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
               <img src="{{ asset('assets/img/quote-sign-right.png') }}" class="quote-sign-right" alt="">
             </p>
-            <img src="{{ asset('assets/img/testimonial-5.jpg') }}" class="testimonial-img" alt="">
-            <h3>John Larson</h3>
-            <h4>Entrepreneur</h4>
           </div>
 
         </div>

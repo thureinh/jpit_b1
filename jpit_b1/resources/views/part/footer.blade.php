@@ -9,7 +9,7 @@
         <div class="col-lg-4 pl-4 pt-2 pt-lg-5 pl-lg-5">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="{{route('index')}}" class="active">Home</a></li>
             <li><a href="#aboutus">About Us</a></li>
             <li><a href="#courses">Courses</a></li>
             <li><a href="#contactus">Contact Us</a></li>
@@ -19,9 +19,9 @@
           <h3>Social Media</h3>
           <p class="font-italic">"Connect with Us..."</p>
           <div class="social-links">
-            <a href="https://www.facebook.com/micbootcamp/" class="facebook pl-2 pr-3" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.facebook.com/micbootcamp/" class="facebook pl-2 pr-3" target="_blank"><i class="fab fa-facebook-f"></i></a>
             <a href="https://www.messenger.com/" class="messenger px-3" target="_blank"><i class="fab fa-facebook-messenger"></i></a>
-            <a href="https://www.skype.com/en/" class="skype px-3" target="_blank"><i class="fa fa-skype"></i></a>
+            <a href="https://www.skype.com/en/" class="skype px-3" target="_blank"><i class="fab fa-skype"></i></a>
           </div>
         </div>
       </div>
