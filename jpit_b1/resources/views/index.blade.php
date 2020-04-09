@@ -9,7 +9,7 @@
       <h2>Making <span>our dreams</span> <br>come true!
       </h2>
       <div>
-        <a href="#login" class="btn-login scrollto">Log in</a>
+        <a href="login" class="btn-login scrollto">Log in</a>
         <a href="register" class="btn-register scrollto">Create Account</a>
       </div>
     </div>

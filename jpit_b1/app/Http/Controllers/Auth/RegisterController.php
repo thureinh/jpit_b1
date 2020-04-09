@@ -31,7 +31,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    // protected $redirectTo = '/login';
+    protected $redirectTo = 'email/verify';
 
     /**
      * Create a new controller instance.
@@ -80,17 +80,5 @@ class RegisterController extends Controller
             'batch_no' => $data['batch'],
             'roll_no' => $data['roll']
         ]);
-    }
-    /**
-     * The user has been registered.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
-     * @return mixed
-     */
-    protected function registered(Request $request, $user)
-    {
-        $this->guard()->logout();
-        return redirect()->route('login');
     }
 }
