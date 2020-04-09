@@ -9,7 +9,7 @@
 				<div class="row">
 					@include('part.studentmenu')
 
-					<div class="col-lg-9">
+					<div class="col-lg-9 sub-menu-content">
 						<h3>Student's Dashboard</h3>
 
 						<!-- summary cards -->
