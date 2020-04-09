@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'PagesController@index')->name('index');
 
-Route::get('/studenthome', 'PagesController@studenthome')->name('studenthome');
+Route::get('/studenthome', 'PagesController@studenthome')->name('studenthome')->middleware('auth');
 
 Route::get('/senseihome', 'PagesController@senseihome')->name('senseihome');
 

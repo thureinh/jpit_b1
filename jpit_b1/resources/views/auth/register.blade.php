@@ -1,160 +1,208 @@
-@extends('template')
-@section('css')
-    <style type="text/css">
-  legend.address-border {
-    font-size: 1.2em !important;
-    font-weight: bold !important;
-    text-align: left !important;
-    width: auto;
-    padding:0 10px;
-    border-bottom:none;
-  }
-  fieldset.address-border{
-    border: 1px groove #ddd !important;
-    padding: 0 1.4em 1.4em 1.4em !important;
-    margin: 0 0 1.5em 0 !important;
-    -webkit-box-shadow: 0px 0px 0px 0px #000;
-    box-shadow: 0px 0px 0px 0px #000;
-  }
-</style>
-@endsection
-@section('content')
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Create Account | Japanese Online Corner</title>
+  <meta content="" name="descriptison">
+  <meta content="" name="keywords">
 
-   <div class="container">                    
-        <h1 style="text-align: center;vertical-align: middle;">Registration Form</h1>
-        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
-            @csrf
+  <!-- Favicons -->
+  <link href="{{ asset('assets/img/favicon.png') }}" rel="icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Thambi+2&family=Nunito:wght@400;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ asset('assets/fontawesome/css/all.css') }}">
+
+  <!-- Template Main CSS File -->
+  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+  <section id="register" class="bg-light">
+   <div class="container">
+    <div class="registercard shadow bg-white">
+      <div class="row">
+        
+        <div class="col-lg-5">
+          <img src="{{ asset('assets/img/login.jpg') }}" class="img-fluid">
+        </div>
+
+        <div class="col-lg-7 form-div">
+          <h2>JP Online Corn<span>er</span></h2>
+          <h4 class="mt-3">Registration Form</h4>
+          <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+              @csrf
 
             <div class="form row">
-                <div class="col-md-6 mb-3">
-                    <label for="firstname">{{ __('First Name') }}</label>
-                    <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" placeholder="Your first name" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus>
-                    <div class="invalid-feedback"></div>
-                    <div class="valid-feedback">It's Ok</div>
-                    @error('firstname')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+              <div class="col-md-6">
+                <div class="group">      
+                  <input  id="firstname" type="text" name="firstname" value="{{ old('firstname') }}" required autocomplete="off">
+                  @error('firstname')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>First Name</label>                 
                 </div>
+              </div> 
 
-                <div class="col-md-6 mb-3">
-                    <label for="lastname">{{ __('Last Name') }}</label>
-                    <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" placeholder="Your second name" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
-                    <div class="invalid-feedback"></div>
-                    <div class="valid-feedback">It's Ok</div>
-                    @error('lastname')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+              <div class="col-md-6">
+                <div class="group">      
+                  <input  id="lastname" type="text" name="lastname" value="{{ old('lastname') }}" required autocomplete="off">
+                  @error('lastname')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Last Name</label>
                 </div>
+              </div>
             </div>
 
             <div class="form row">
-                <div class="col-md-6 mb-3">
-                    <label for="email">{{ __('E-Mail Address') }}</label>
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Your email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                    @error('email')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+              <div class="col-md-6">
+                <div class="group">      
+                  <input  id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="off">
+                  @error('email')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Email</label>
                 </div>
+              </div>
 
-                <div class="col-md-6 mb-3">
-                    <label for="phone">{{ __('Phone Number') }}</label>
-                    <input id="phone" type="tel" pattern="09-[0-9]+" class="form-control @error('phone') is-invalid @enderror" placeholder="09-XXX XXX XXX" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
-
-                    @error('phone')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+              <div class="col-md-6">
+                <div class="group">      
+                  <input  id="phone" type="text" name="phone" value="{{ old('phone') }}" required autocomplete="off">
+                  @error('phone')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Phone No</label>
                 </div>
+              </div>
             </div>
 
             <div class="form row">
-                <div class="col-md-6 mb-3">
-                    <label for="password">{{ __('Password') }}</label>
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required >
-
-                    @error('password')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+              <div class="col-md-6">
+                <div class="group">      
+                  <input  id="passoword" type="password" name="password" value="{{ old('passoword') }}" required autocomplete="off" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters">
+                  @error('passoword')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Password</label>
                 </div>
+              </div>
 
-                <div class="col-md-6 mb-3">
-                <label for="phone">{{ __('Confirm Password') }}</label>
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-
-                    @error('phone')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+              <div class="col-md-6">
+                <div class="group">      
+                  <input  id="password_confirmation" type="password" name="password_confirmation" value="{{ old('password_confirmation') }}" required  autocomplete="off">
+                  @error('password_confirmation')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Confirm Password</label>
                 </div>
+              </div>
+            </div>
+
+            <div class="form row">
+              <div class="col-md-6 my-lg-2 pt-1">
+                <div class="group">      
+                  <input  id="dob" type="date" name="dob" value="{{ old('dob') }}" max="2000-12-31" required>
+                  @error('dob')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label class="extra-label">Date of Birth</label>
+                </div>
+              </div>
+
+              <div class="col-md-6 my-lg-2">
+                <div class="group">      
+                  <input  id="profile" type="file" name="profile" value="{{ old('profile') }}" required >
+                  @error('profile')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label class="extra-label">Profile Picture</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12 my-lg-2">
+                <div class="group">      
+                  <input  id="address" type="text" name="address" value="{{ old('address') }}" max="2000-12-31" required autocomplete="off">
+                  @error('address')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Address</label>
+                </div>
+              </div>
+            </div>
+
+            <h6>Class Info</h6>
+            <div class="form row">
+              <div class="col-md-6">
+                <div class="group">      
+                  <input  id="batch" type="number" name="batch" value="{{ old('batch') }}" required autocomplete="off" min="1" max="3">
+                  @error('batch')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Batch No</label>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="group">      
+                  <input  id="roll" type="number" name="roll" value="{{ old('roll') }}" required autocomplete="off" max="18" min="1">
+                  @error('roll')
+                    <span class="error-text">{{ $message }}</span>
+                  @enderror
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
+                  <label>Roll No</label>
+                </div>
+              </div>
             </div>
             
             <div class="form row">
-                <div class="col-md-4 mb-3">
-                    <label for="profile">Profile Picture</label>
-                    <div class="custom-file">
-                        <input type="file" name="profile" class="custom-file-input" id="inputGroupFile02">
-                        <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Choose file</label>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="dateofbirth">Date Of Birth</label>
-                    <div class="form-group">
-                        <div class="input-group date">
-                            <input type="text" id="datepicker" class="form-control" placeholder="Select DOB" name="dob">
-                            <div class="input-group-text" onclick="showDate()"><i class="fa fa-calendar" style="font-size: 1.5em;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4 mb-3">
-                    <label for="address">Address</label>
-                    <input type="text" name="address" class="form-control" placeholder="Address">
-                </div>
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-get-started">Register</button>
+              </div>
             </div>
-<!----------------------------------- FIELDSET-------------------------------------------->
-            <fieldset class="address-border">
-            <legend class="address-border">Itemdity</legend>
-                <div class="form-row mb-3">
-                    <div class="col-md-6 mb-3">
-                        <label for="batch">Batch No</label>
-                        <input type="number" name="batch" class="form-control" required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <label for="roll">Roll No</label>
-                        <input type="number" name="roll" class="form-control" required>
-                    </div>      
-                </div>
-            </fieldset>       
+            
             <div class="form row">
-                <div class="col-md-2 offset-md-5" style="align-content: center;">
-                    <button type="submit" class="btn btn-lg btn-block btn-primary mb-5">
-                        {{ __('Register') }}
-                    </button>
-                </div>
+              <div class="col-12 text-center mb-3">
+                <a href="{{ route('login') }}" class="mr-2">Already Have Account?</a> |
+                <a href="{{ route('index') }}" class="ml-2"><i class="fas fa-home pr-2"></i>Back to Home</a>
+              </div>
             </div>
-        </form>
-    </div>
-@endsection
-@section('js')
-<script type="text/javascript" src="{{asset('dist/js/jquery-ui.js')}}"></script>
-<script type="text/javascript">
-   $("#datepicker").datepicker();
-    function showDate() {
-      console.log('click');
-    document.getElementById("datepicker").focus();
-  }
-</script>
-@endsection
+          </form>
+        </div>
+
+      </div>  <!-- row end -->        
+          
+      </div> <!-- register card end -->  
+    </div>  <!-- container end -->
+
+  </section>
+
+  <script src="{{ asset('assets/vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+</body>
+</html>
