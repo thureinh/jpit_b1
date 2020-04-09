@@ -38,27 +38,60 @@
 
           <hr class="dropdown-divider" class="sub-menu-nav">
 
-          <li class="sub-menu-nav"><a href="#">Dashboard</a></li>
-          <li class="sub-menu-nav"><a href="#">Vocabulary</a></li>
-          <li class="sub-menu-nav"><a href="#">Grammar</a></li>
-          <li class="sub-menu-nav"><a href="#">Kanji</a></li>
-          <li class="sub-menu-nav"><a href="#">Grammar</a></li>
-          <li class="sub-menu-nav"><a href="#">Reading</a></li>
-          <li class="sub-menu-nav"><a href="#">Listening</a></li>
-          <li class="sub-menu-nav"><a href="#">Writing</a></li>
+          <!-- for student -->
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-tv mr-3"></i>Dashboard</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-clipboard-list mr-3"></i>Vocabulary</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="far fa-bookmark mr-3"></i>Grammar</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-spell-check mr-3"></i>Kanji</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-book-open mr-3"></i>Reading</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-headphones-alt mr-3"></i>Listening</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-pen-alt mr-3"></i>Writing</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="far fa-bell mr-3"></i>Notification</a>
+          </li>
 
           <!-- for sensei nav -->
-          <!-- <li class="sub-menu-nav"><a href="#">Dashboard</a></li>
-          <li class="sub-menu-nav"><a href="#">Test</a></li>
-          <li class="sub-menu-nav"><a href="#">Vocabulary</a></li>
-          <li class="sub-menu-nav"><a href="#">Grammar</a></li>
-          <li class="sub-menu-nav"><a href="#">Kanji</a></li>
-          <li class="sub-menu-nav"><a href="#">Grammar</a></li>
-          <li class="sub-menu-nav"><a href="#">Reading</a></li>
-          <li class="sub-menu-nav"><a href="#">Listening</a></li>
-          <li class="sub-menu-nav"><a href="#">Writing</a></li>
-          <li class="sub-menu-nav"><a href="#">Student</a></li>
-          <li class="sub-menu-nav"><a href="#">Teacher</a></li> -->
+          <!-- <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-tv mr-3"></i>Dashboard</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-clipboard-list mr-3"></i>Vocabulary</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="far fa-bookmark mr-3"></i>Grammar</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-spell-check mr-3"></i>Kanji</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-book-open mr-3"></i>Reading</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-headphones-alt mr-3"></i>Listening</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-pen-alt mr-3"></i>Writing</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-user-friends mr-3"></i>Student</a>
+          </li>
+          <li class="sub-menu-nav">
+            <a href="#"><i class="fas fa-chalkboard-teacher mr-3"></i>Teacher</a>
+          </li> -->
 
         </ul>
       </nav>

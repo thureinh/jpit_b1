@@ -119,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0px 6px 9px 0px rgba(0, 0, 0, 0.06);
 }
 
-#header #logo h1 {
+#header #logo h1, #register h2 {
   font-size: 35px;
   margin: 0;
   padding: 0;
@@ -128,13 +128,13 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 800;
 }
 
-#header #logo h1 a {
+#header #logo h1 a, #register h2 {
   color: #182D58;
   line-height: 1;
   display: inline-block;
 }
 
-#header #logo h1 a span {
+#header #logo h1 a span, #register h2 span {
   background: linear-gradient(45deg, #F37587 0%, #F5ADB3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -243,14 +243,15 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
 }
 
-#intro .intro-content .btn-get-started {
-  background: #182D58;
-  border: 2px solid #182D58;
+.btn-get-started {
+  background: linear-gradient(45deg, #182D58 0%, #1E6CB3 100%);
+  color: #fff;
+  width: 100%;
 }
 
-#intro .intro-content .btn-get-started:hover {
-  background: none;
-  color: #182D58;
+.btn-get-started:hover {
+  background: linear-gradient(45deg, #182D58 30%, #1E6CB3 80%);
+  color: #fff;
 }
 
 #intro .intro-content .btn-projects {
@@ -1295,6 +1296,11 @@ content: "\f39e"!important;
   color: #F8D236;
 }
 
+.error-text {
+  color: #B82E29;
+  font-size: 12px;
+}
+
 .sub-menu-nav {
   display: none !important;
 }
@@ -1315,14 +1321,159 @@ content: "\f39e"!important;
 
 @media (min-width: 992px) {
   #maincontent .sub-menu {
-    -ms-flex: 0 0 20%;
-    flex: 0 0 20%;
-    max-width: 20%;
+    -ms-flex: 0 0 21%;
+    flex: 0 0 21%;
+    max-width: 21%;
   }
 
   #maincontent .sub-menu-content {
-    -ms-flex: 0 0 80%;
-    flex: 0 0 80%;
-    max-width: 80%;
+    -ms-flex: 0 0 79%;
+    flex: 0 0 79%;
+    max-width: 79%;
+  }
+}
+
+
+/*--------------------------------------------------------------
+# Register
+--------------------------------------------------------------*/
+#register .container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+#register .registercard img {
+  height: 100%;
+  width: 100%;
+}
+
+#register .registercard .form-div {
+  padding: 40px 60px 40px 30px;  
+}
+
+/* form starting stylings ------------------------------- */
+#register .group { 
+  position:relative; 
+  margin-bottom:45px; 
+}
+#register input {
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom: 0.7px solid #ccc;
+}
+#register input:focus { 
+  outline:none; 
+}
+
+/* LABEL ======================================= */
+#register label {
+  color:#999; 
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+#register input:focus ~ label,#register input:valid ~ label, #register .extra-label {
+  top:-20px;
+  font-size:14px;
+  color:#aaa;
+}
+
+
+/* BOTTOM BARS ================================= */
+#register .bar { 
+  position:relative; 
+  display:block; 
+  width:100%; 
+  }
+#register .bar:before, #register .bar:after   {
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#182D58; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+#register .bar:before {
+  left:50%;
+}
+#register .bar:after {
+  right:50%; 
+}
+
+/* active state */
+#register input:focus ~ .bar:before, #register input:focus ~ .bar:after {
+  width:50%;
+}
+
+#register a {
+  color: #888;
+}
+
+#register a:hover {
+  color: #555;
+}
+
+/* HIGHLIGHTER ================================== */
+#register .highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+#register input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+  from { background:#5264AE; }
+  to  { width:0; background:transparent; }
+}
+
+@media (max-width: 991px) { 
+  #register .registercard img {
+    display: none;
+  }
+
+  #register .registercard .form-div {
+    padding: 40px 30px 40px 30px;  
+  }
+
+  #register .registercard h4 {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 991px) {
+  #register .form-div .col-md-6, #register .form-div .col-md-12{
+    height: 75px;
+    margin-top: 10px;
   }
 }

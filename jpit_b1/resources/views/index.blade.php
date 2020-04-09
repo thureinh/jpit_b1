@@ -9,8 +9,8 @@
       <h2>Making <span>our dreams</span> <br>come true!
       </h2>
       <div>
-        <a href="#login" class="btn-login scrollto">Log in</a>
-        <a href="register" class="btn-register scrollto">Create Account</a>
+        <a href="{{route('login')}}" class="btn-login scrollto">Log in</a>
+        <a href="{{route('register')}}" class="btn-register scrollto">Create Account</a>
       </div>
     </div>
 
@@ -192,7 +192,7 @@
             <p class="cta-text">To be a Professional with required Soft skills and Technical skills in our Jobs, and to be able to speak Japanese Fluently with Natives and must Pass <strong>N3</strong> in December JLPT! </p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Get Start Now</a>
+            <a class="cta-btn align-middle" href="{{route('register')}}">Get Start Now</a>
           </div>
         </div>
 
