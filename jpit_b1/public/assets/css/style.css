@@ -1356,14 +1356,14 @@ content: "\f39e"!important;
   position:relative; 
   margin-bottom:45px; 
 }
-#register input {
+#register .group input {
   padding:10px 10px 10px 5px;
   display:block;
   width:100%;
   border:none;
   border-bottom: 0.7px solid #ccc;
 }
-#register input:focus { 
+#register .group input:focus { 
   outline:none; 
 }
 
@@ -1381,7 +1381,7 @@ content: "\f39e"!important;
 }
 
 /* active state */
-#register input:focus ~ label,#register input:valid ~ label, #register .extra-label {
+#register .group input:focus ~ label,#register .group input:valid ~ label, #register .extra-label {
   top:-20px;
   font-size:14px;
   color:#aaa;
@@ -1413,7 +1413,7 @@ content: "\f39e"!important;
 }
 
 /* active state */
-#register input:focus ~ .bar:before, #register input:focus ~ .bar:after {
+#register .group input:focus ~ .bar:before, #register .group input:focus ~ .bar:after {
   width:50%;
 }
 
@@ -1437,11 +1437,29 @@ content: "\f39e"!important;
 }
 
 /* active state */
-#register input:focus ~ .highlight {
+#register .group input:focus ~ .highlight {
   -webkit-animation:inputHighlighter 0.3s ease;
   -moz-animation:inputHighlighter 0.3s ease;
   animation:inputHighlighter 0.3s ease;
 }
+
+#register input[type="checkbox"] {
+  animation: none;
+  pointer-events: auto;
+  display: inline-block;
+  padding: 0;
+}
+
+#register .check-label {
+  position: static;
+  pointer-events: auto;
+}
+
+.btn-get-started {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
 
 /* ANIMATIONS ================ */
 @-webkit-keyframes inputHighlighter {
@@ -1469,11 +1487,16 @@ content: "\f39e"!important;
   #register .registercard h4 {
     margin-bottom: 30px;
   }
+
+  .remember {
+    margin-top: -20px;
+    margin-bottom: 25px;
+  }
 }
 
 @media (min-width: 991px) {
   #register .form-div .col-md-6, #register .form-div .col-md-12{
-    height: 75px;
-    margin-top: 10px;
+    height: 70px;
+    margin-top: 15px;
   }
 }

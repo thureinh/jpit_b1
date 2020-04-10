@@ -26,19 +26,19 @@
       <div class="row">
         
         <div class="col-lg-5">
-          <img src="{{ asset('assets/img/login.jpg') }}" class="img-fluid">
+          <img src="{{ asset('assets/img/register.jpg') }}" class="img-fluid">
         </div>
 
         <div class="col-lg-7 form-div">
           <h2>JP Online Corn<span>er</span></h2>
-          <h4 class="mt-3">Registration Form</h4>
+          <h4 class="mt-4">Registration Form</h4>
           <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
               @csrf
 
             <div class="form row">
               <div class="col-md-6">
                 <div class="group">      
-                  <input  id="firstname" type="text" name="firstname" value="{{ old('firstname') }}" required autocomplete="off">
+                  <input  id="firstname" type="text" name="firstname" value="{{ old('firstname') }}" required autocomplete="off" autofocus>
                   @error('firstname')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
@@ -128,7 +128,7 @@
 
               <div class="col-md-6 my-lg-2">
                 <div class="group">      
-                  <input  id="profile" type="file" name="profile" value="{{ old('profile') }}" required >
+                  <input  id="profile" type="file" name="profile" value="{{ old('profile') }}" required   accept="image/*">
                   @error('profile')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
@@ -188,8 +188,8 @@
             
             <div class="form row">
               <div class="col-12 text-center mb-3">
-                <a href="{{ route('login') }}" class="mr-2">Already Have Account?</a> |
-                <a href="{{ route('index') }}" class="ml-2"><i class="fas fa-home pr-2"></i>Back to Home</a>
+                <a href="{{ route('login') }}" class="mr-2 btn btn-link"><i class="fas fa-sign-in-alt pr-2"></i> Already Have Account?</a> |
+                <a href="{{ route('index') }}" class="ml-2 btn btn-link"><i class="fas fa-home pr-2"></i>Back to Home</a>
               </div>
             </div>
           </form>
