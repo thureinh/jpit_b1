@@ -32,12 +32,16 @@
             <ul>
               <li>
                 <div class="d-flex justify-content-center">
-                  <img src="{{ Auth::user()->profile_pic }}" class="rounded-circle" width="100" height="100">  
+                  <img src="{{ asset(Auth::user()->profile_pic) }}" class="rounded-circle" width="100" height="100">  
                 </div>
               </li>
-              <li><center class="text-dark pt-2 font-weight-bolder">
+              <li>
+                  <center class="text-dark pt-2 font-weight-bolder">
                     {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                   </center>
+              </li>
+              <li class="d-flex justify-content-center">
+                <a href="{{ route('students.show', ['student' => Auth::id()]) }}"><i class="fas fa-user-alt fa-lg mr-2"></i> Profile</a>
               </li>
               <li class="d-flex justify-content-center">
                   <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
