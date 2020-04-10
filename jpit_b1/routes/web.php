@@ -23,4 +23,8 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/settings/security/{id}', function($id) {
+	return redirect()->route('students.edit', ['student' => $id]);
+})->middleware(['auth', 'password.confirm']);
+
 Route::resource('students', 'StudentController');

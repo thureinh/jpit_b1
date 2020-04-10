@@ -8,10 +8,12 @@
     <div class="intro-content">
       <h2>Making <span>our dreams</span> <br>come true!
       </h2>
+      @if(!Auth::check())
       <div>
         <a href="{{route('login')}}" class="btn-login scrollto">Log in</a>
         <a href="{{route('register')}}" class="btn-register scrollto">Create Account</a>
       </div>
+      @endif
     </div>
 
     <div id="intro-carousel" class="owl-carousel">
