@@ -10,7 +10,7 @@
 					@include('part.teachermenu')
 
 					<div class="col-lg-9 sub-menu-content">
-						<h3>Sensei's Dashboard</h3>
+						<h3 class="mt-2">Sensei's Dashboard</h3>
 
 						<!-- summary cards -->
 						<h5>Total</h5>

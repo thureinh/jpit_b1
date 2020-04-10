@@ -22,11 +22,12 @@
   <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/venobox/venobox.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/vendor/owl.carousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/datatable/datatables.min.css') }}" rel="stylesheet">
+  <!-- add css -->
+  @yield('css')
 
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-  <!-- add css -->
-  @yield('css')
 
 </head>
 
@@ -49,6 +50,7 @@
   <script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/waypoints/jquery.waypoints.min.js') }}"></script>
   <script src="{{ asset('assets/vendor/venobox/venobox.min.js') }}"></script>
+  <script src="{{ asset('assets/vendor/datatable/datatables.min.js') }}"></script>
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/js/main.js') }}"></script>
   <!-- add javascript -->

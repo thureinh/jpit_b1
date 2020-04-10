@@ -26,8 +26,9 @@
           <li class="menu-active"><a href="{{route('index')}}">Home</a></li>
           <li><a href="#about">About Us</a></li>
           <li><a href="#course">Courses</a></li>
+          <li><a href="#contact">Contact Us</a></li>
           @auth
-          <li class="menu-has-children"><a href="#">Welcome {{ Auth::user()->firstname }}</a>
+          <li class="menu-has-children"><a href="javascript:void(0)">Welcome {{ Auth::user()->firstname }}</a>
             <ul>
               <li>
                 <div class="d-flex justify-content-center">
@@ -47,7 +48,6 @@
             </ul>
           </li>
           @endauth
-          <li><a href="#contact">Contact Us</a></li>
 
           <hr class="dropdown-divider" class="sub-menu-nav">
 

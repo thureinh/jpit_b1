@@ -23,7 +23,7 @@
 	  </li>
 	  <li class="list-group-item  d-flex justify-content-between align-items-center">
 	    <a href="#"><span><i class="far fa-bell"></i></span>Notification</a>
-	    <span class="badge badge-pill">6</span>
+	    <span class="badge badge-pill mr-3">6</span>
 	  </li>
 	</ul>
 	<hr class="dropdown-divider">

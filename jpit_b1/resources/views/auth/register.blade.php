@@ -31,7 +31,7 @@
 
         <div class="col-lg-7 form-div">
           <h2>JP Online Corn<span>er</span></h2>
-          <h4 class="mt-4">Registration Form</h4>
+          <h4 class="mt-4">Create New Account</h4>
           <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
               @csrf
 

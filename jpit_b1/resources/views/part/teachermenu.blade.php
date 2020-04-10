@@ -1,13 +1,13 @@
 <div class="col-lg-3 sub-menu">
 	<ul class="list-group">
-	  <li class="active list-group-item  d-flex justify-content-between align-items-center">
-	    <a href="#"><span><i class="fas fa-tv"></i></span>Dashboard</a>
+	  <li class="{{request()->routeIs('senseihome') ? 'active' : '' }} list-group-item  d-flex justify-content-between align-items-center">
+	    <a href="{{ route('senseihome') }}"><span><i class="fas fa-tv"></i></span>Dashboard</a>
 	  </li>
 	  <li class="list-group-item  d-flex justify-content-between align-items-center">
 	    <a href="#"><span><i class="fas fa-clipboard-check"></i></span>Test</a>
 	  </li>
-	  <li class="list-group-item  d-flex justify-content-between align-items-center">
-	    <a href="#"><span><i class="fas fa-clipboard-list"></i></span>Vocabulary</a>
+	  <li class="{{request()->routeIs('vocab*') ? 'active' : '' }} list-group-item  d-flex justify-content-between align-items-center">
+	    <a href="{{ route('vocab.index') }}"><span><i class="fas fa-clipboard-list"></i></span>Vocabulary</a>
 	  </li>
 	  <li class="list-group-item  d-flex justify-content-between align-items-center">
 	    <a href="#"><span><i class="far fa-bookmark"></i></span>Grammar</a>

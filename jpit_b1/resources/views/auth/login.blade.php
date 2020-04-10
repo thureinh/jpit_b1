@@ -39,11 +39,11 @@
             <div class="col-md-12">
               <div class="group">      
                   <input  id="email" type="email" name="email" value="{{ old('email') }}" required autocomplete="off" autofocus>
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
                   @error('email')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
-                  <span class="highlight"></span>
-                  <span class="bar"></span>
                   <label>Email Address</label>
                </div>
             </div>
@@ -53,11 +53,11 @@
             <div class="col-md-12">
               <div class="group">      
                   <input  id="password" type="password" name="password" value="{{ old('password') }}" required autocomplete="off">
+                  <span class="highlight"></span>
+                  <span class="bar"></span>
                   @error('password')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
-                  <span class="highlight"></span>
-                  <span class="bar"></span>
                   <label>Password</label>
                </div>
             </div>
@@ -78,7 +78,7 @@
 
             <div class="form row">
               <div class="col-md-12">
-                <button type="submit" class="btn btn-get-started">Login</button>
+                <button type="submit" class="btn btn-get-started">Log in</button>
               </div>
             </div>
 

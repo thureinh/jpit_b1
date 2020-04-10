@@ -249,7 +249,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-.btn-get-started:hover {
+.btn-add {
+  background: linear-gradient(45deg, #182D58 0%, #1E6CB3 100%);
+  color: #fff;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+.btn-get-started:hover, .btn-add:hover {
   background: linear-gradient(45deg, #182D58 30%, #1E6CB3 80%);
   color: #fff;
 }
@@ -1203,7 +1210,7 @@ content: "\f39e"!important;
 # Dashboard
 --------------------------------------------------------------*/
 #maincontent {
-  padding: 60px 0;
+  padding: 40px 0 80px 0;
 }
 
 #maincontent .sub-menu {
@@ -1230,7 +1237,7 @@ content: "\f39e"!important;
 }
 
 #maincontent .sub-menu .active a {
-  color: #444;
+  color: #182D58;
 }
 
 #maincontent .sub-menu .active {
@@ -1261,7 +1268,7 @@ content: "\f39e"!important;
 }
 
 #maincontent h5 {
-  color: #888;
+  color: #999;
   font-family: 'Nunito';
   font-size: 18px;
 }
@@ -1311,7 +1318,7 @@ content: "\f39e"!important;
   }
 
   #maincontent {
-    padding: 40px 0;
+    padding: 40px 0 60px 0;
   }
 
   .sub-menu-nav {
@@ -1499,4 +1506,142 @@ content: "\f39e"!important;
     height: 70px;
     margin-top: 15px;
   }
+}
+
+/*--------------------------------------------------------------
+# Data tables
+--------------------------------------------------------------*/
+
+.page-item.active .page-link {
+  background-color: #182D58;
+  border-color: #182D58;
+}
+
+.page-link {
+  color: #182D58;
+}
+
+/*--------------------------------------------------------------
+# Common Form
+--------------------------------------------------------------*/
+#maincontent .btn-white-cardbutton {
+  box-shadow: 0px 3px 8px rgba(0,0,0,.2);
+  padding: 11px 22px;
+  color: #555;
+  border-radius: 1.5em;
+  margin-top: -5px;
+  background-position: center;
+  transition: background 0.5s;
+}
+#maincontent .btn-white-cardbutton:hover {
+  background: #f7f7f7 radial-gradient(circle, transparent 1%, #fff 1%) center/15000%;
+}
+#maincontent .btn-white-cardbutton:active {
+  background-color: #f9f9f9;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* form starting stylings ------------------------------- */
+.edited-form .group { 
+  position:relative; 
+  margin-bottom:45px; 
+}
+.edited-form .group input {
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom: 0.7px solid #ccc;
+}
+.edited-form .group input:focus { 
+  outline:none; 
+}
+
+/* LABEL ======================================= */
+.edited-form label {
+  color:#999; 
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:5px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+.edited-form input:focus ~ label,.edited-form input:valid ~ label, .edited-form .extra-label {
+  top:-20px;
+  font-size:14px;
+  color:#aaa;
+}
+
+
+/* BOTTOM BARS ================================= */
+.edited-form .bar { 
+  position:relative; 
+  display:block; 
+  width:100%; 
+  }
+.edited-form .bar:before, .edited-form .bar:after   {
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#182D58; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.edited-form .bar:before {
+  left:50%;
+}
+.edited-form .bar:after {
+  right:50%; 
+}
+
+/* active state */
+.edited-form .group input:focus ~ .bar:before, .edited-form .group input:focus ~ .bar:after {
+  width:50%;
+}
+
+.edited-form a {
+  color: #888;
+}
+
+.edited-form a:hover {
+  color: #555;
+}
+
+/* HIGHLIGHTER ================================== */
+.edited-form .highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+.edited-form input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+.edited-form input[type="checkbox"] {
+  animation: none;
+  pointer-events: auto;
+  display: inline-block;
+  padding: 0;
+}
+
+.edited-form .check-label {
+  position: static;
+  pointer-events: auto;
 }
