@@ -34,7 +34,7 @@
         <div class="col-lg-7 form-div">
           <h2>JP Online Corn<span>er</span></h2>
           <h4 class="mt-3">Registration Form</h4>
-          <form method="POST" action="{{ route('students.update', ['student' => $student->id]) }}" enctype="multipart/form-data">
+          <form method="POST" action="{{ route('student.update') }}" enctype="multipart/form-data">
               @csrf
             <input type="hidden" name="_method" value="PUT">
             <div class="form row center">
@@ -192,7 +192,7 @@
                 <button type="submit" class="btn btn-get-started">Update</button>
               </div>
               <div class="col-md-6">
-                <a type="button" class="btn btn-get-started text-white" href="{{ route('students.show', ['student'=> $student->id]) }}">Cancel</a>
+                <a type="button" class="btn btn-get-started text-white" href="{{ route('student.show') }}">Cancel</a>
               </div>
             </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -47,9 +48,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $user = User::where('id', $id)->first();
+        $user = Auth::user();
         return view('student.show_student', ['user' => $user]);
     }
 
@@ -59,9 +60,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
-        $student = User::where('id', $id)->first();
+        $student = Auth::user();
         return view('student.edit_student', ['student' => $student]);      
     }
 
@@ -72,14 +73,13 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        $student = User::find($id);
+        $student = Auth::user();
         if($request->hasFile('profile'))
         {
             $new_profile = $request->file('profile');
-            $old_profile = User::where('id', $id)->get('profile_pic')->first();
-            Storage::delete($old_profile->profile_pic);
+            Storage::delete($student->profile_pic);
             $path = Storage::putFile('profile_images', $new_profile);
             $student->profile_pic = $path;
         }
@@ -95,7 +95,7 @@ class StudentController extends Controller
             $student->password = $request->password;
         }
         $student->save();
-        return redirect()->route('students.show', ['student' => $id]);
+        return redirect()->route('student.show');
     }
 
     /**

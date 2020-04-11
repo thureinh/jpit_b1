@@ -12,29 +12,38 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Home Route
+Route::get('/home', 'HomeController@index')->name('home');
+
+//Routes accessible only by Teacher
+Route::middleware(['auth', 'sensei'])->group(function() {
+	Route::get('/senseihome', 'PagesController@senseihome')->name('senseihome');
+});
+
+//Routes accessible only by Student
+Route::middleware(['auth', 'gakusei'])->group(function() {
+	Route::get('/studenthome', 'PagesController@studenthome')->name('studenthome');
+	//Control Route Of Student
+	Route::name('student.')->prefix('student')->group(function () {
+	    Route::get('showall', 'StudentController@index')->name('showall');
+	    Route::get('show', 'StudentController@show')->name('show');
+		Route::get('edit', 'StudentController@edit')->name('edit');
+		Route::put('update', 'StudentController@update')->name('update');
+		Route::get('setting', function() {
+			return redirect()->route('student.edit');
+		})->middleware(['password.confirm', 'verified'])->name('setting');
+	});
+});
 
 Route::get('/', 'PagesController@index')->name('index');
 
-Route::get('/studenthome', 'PagesController@studenthome')->name('studenthome')->middleware('auth');
-
-Route::get('/senseihome', 'PagesController@senseihome')->name('senseihome');
-
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Student Setting Route
 
-Auth::routes(['verify' => true]);
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/settings/security/{id}', function($id) {
-	return redirect()->route('students.edit', ['student' => $id]);
-})->middleware(['auth', 'password.confirm']);
 
 // resource controller
 
-Route::resource('students', 'StudentController');
+Route::resource('vocab', 'VocabController');
 
-Route::resource('/vocab', 'VocabController');
-
-Route::resource('/vocabdetail', 'VocabdetailController');
+Route::resource('vocabdetail', 'VocabdetailController');

@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->integer('batch_no');
-            $table->integer('roll_no');
+            $table->integer('batch_no')->nullable();
+            $table->integer('roll_no')->nullable();
             $table->boolean('is_Teacher')->default(false);
             $table->rememberToken();
             $table->timestamps();

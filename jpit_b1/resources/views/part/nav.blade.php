@@ -32,20 +32,23 @@
             <ul>
               <li>
                 <div class="d-flex justify-content-center">
-                  <img src="{{ asset(Auth::user()->profile_pic) }}" class="rounded-circle" width="100" height="100">  
+                  <img src="{{ asset(Auth::user()->profile_pic) }}" class="rounded-circle" width="130" height="130">  
                 </div>
               </li>
               <li>
-                  <center class="text-dark pt-2 font-weight-bolder">
+                  <center class="text-dark pt-2 font-weight-bolder h5 my-2">
                     {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
                   </center>
               </li>
-              <li class="d-flex justify-content-center">
-                <a href="{{ route('students.show', ['student' => Auth::id()]) }}"><i class="fas fa-user-alt fa-lg mr-2"></i> Profile</a>
+              <li class="d-flex justify-content-start">
+                <a href="{{ route('student.show') }}"><i class="fas fa-user-alt fa-lg mr-2"></i> Profile</a>
               </li>
-              <li class="d-flex justify-content-center">
+              <li class="d-flex justify-content-start">
+                <a href="@if(Auth::user()->is_Teacher){{ route('senseihome') }}@else{{ route('studenthome') }}@endif"><i class="fas fa-tachometer-alt fa-lg mr-2"></i> Dashboard</a>
+              </li>
+              <li class="d-flex justify-content-start">
                   <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt fa-lg mr-2"></i>{{ __('Logout') }}
+                    <i class="fas fa-sign-out-alt fa-lg mr-3"></i>{{ __('Logout') }}
                   </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
               </li>

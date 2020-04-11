@@ -20,7 +20,7 @@
 								<img src="{{ asset($user->profile_pic) }}" alt="5">
 							</figure>
 							<div class="edit_profile">
-								<a href='{{url("/settings/security/{$user->id}")}}' class="myButton"><font color="white">Edit Profile</font></a>
+								<a href='{{ url("/student/setting") }}' class="myButton"><font color="white">Edit Profile</font></a>
 							</div>
 						</div>
 						<div class="col-lg-1">
@@ -61,8 +61,6 @@
 									<li><span>Phone </span>{{ $user->phone }}</li>
 								</ul>
 
-
-								
 							</div>
 						</div>
 						

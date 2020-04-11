@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -21,12 +22,21 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
+
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/studenthome';
+    // protected $redirectTo = '/studenthome';
+
+    //Redirect Authenticated Users Accordingly
+    public function redirectTo(){
+        if(Auth::user()->is_Teacher)
+            return '/senseihome';
+        else
+            return '/studenthome';      
+    }
 
     /**
      * Create a new controller instance.
