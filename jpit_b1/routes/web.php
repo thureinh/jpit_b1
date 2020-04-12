@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 //Home Route
 Route::get('/home', 'HomeController@index')->name('home');
 
+//Contact Rout
+Route::get('/contactus', 'PagesController@contactus')->name('contactus');
+
 //Routes accessible only by Teacher
 Route::middleware(['auth', 'sensei'])->group(function() {
 	Route::get('/senseihome', 'PagesController@senseihome')->name('senseihome');
