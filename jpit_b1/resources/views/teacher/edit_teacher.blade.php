@@ -34,7 +34,7 @@
         <div class="col-lg-7 form-div">
           <h2>JP Online Corn<span>er</span></h2>
           <h4 class="mt-3">Registration Form</h4>
-          <form method="POST" action="{{ route('student.update') }}" enctype="multipart/form-data">
+          <form method="POST" action="{{ route('teacher.update') }}" enctype="multipart/form-data">
               @csrf
             <input type="hidden" name="_method" value="PUT">
             <div class="form row center">
@@ -45,7 +45,7 @@
                   </div>
 
                   <div class="dropzone">
-                    <img id="blah" src="{{ asset($student->profile_pic) }}" alt="my profile" class="upload-icon"/ style="margin-top: 10px; width: 120px;height: 120px">
+                    <img id="blah" src="{{ asset($teacher->profile_pic) }}" alt="my profile" class="upload-icon"/ style="margin-top: 10px; width: 120px;height: 120px">
                     <input type="file" class="upload-input" name="profile" onchange="readURL(this);"/>
                   </div>
 
@@ -56,7 +56,7 @@
             <div class="form row">
               <div class="col-md-6">
                 <div class="group">      
-                  <input  id="firstname" type="text" name="firstname" value="{{ $student->firstname }}" required autocomplete="off">
+                  <input  id="firstname" type="text" name="firstname" value="{{ $teacher->firstname }}" required autocomplete="off">
                   @error('firstname')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
@@ -68,7 +68,7 @@
 
               <div class="col-md-6">
                 <div class="group">      
-                  <input  id="lastname" type="text" name="lastname" value="{{ $student->lastname }}" required autocomplete="off">
+                  <input  id="lastname" type="text" name="lastname" value="{{ $teacher->lastname }}" required autocomplete="off">
                   @error('lastname')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
@@ -81,8 +81,8 @@
 
             <div class="form row">
               <div class="col-md-6">
-                <div class="group">      
-                  <input  id="email" type="email" name="email" value="{{ $student->email }}" required autocomplete="off" readonly>
+                <div class="group">       
+                  <input  id="email" type="email" name="email" value="{{ $teacher->email }}" required autocomplete="off" readonly>
                   @error('email')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
@@ -94,7 +94,7 @@
 
               <div class="col-md-6">
                 <div class="group">      
-                  <input  id="phone" type="text" name="phone" value="{{ $student->phone }}" required autocomplete="off">
+                  <input  id="phone" type="text" name="phone" value="{{ $teacher->phone }}" required autocomplete="off">
                   @error('phone')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
@@ -134,7 +134,7 @@
             <div class="form row">
               <div class="col-md-6 my-lg-2 pt-1">
                 <div class="group">      
-                  <input  id="dob" type="date" name="dob" value="{{ $student->dateofbirth->format('Y-m-d') }}" max="2000-12-31" required>
+                  <input  id="dob" type="date" name="dob" value="{{ $teacher->dateofbirth->format('Y-m-d') }}" max="2000-12-31" required>
                   @error('dob')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
@@ -149,7 +149,7 @@
             <div class="row">
               <div class="col-md-12 my-lg-2">
                 <div class="group">      
-                  <input  id="address" type="text" name="address" value="{{ $student->address }}" max="2000-12-31" required autocomplete="off">
+                  <input  id="address" type="text" name="address" value="{{ $teacher->address }}" max="2000-12-31" required autocomplete="off">
                   @error('address')
                     <span class="error-text">{{ $message }}</span>
                   @enderror
@@ -160,39 +160,13 @@
               </div>
             </div>
 
-            <h6>Class Info</h6>
-            <div class="form row">
-              <div class="col-md-6">
-                <div class="group">      
-                  <input  id="batch" type="number" name="batch" value="{{ $student->batch_no }}" required autocomplete="off" min="1" max="3">
-                  @error('batch')
-                    <span class="error-text">{{ $message }}</span>
-                  @enderror
-                  <span class="highlight"></span>
-                  <span class="bar"></span>
-                  <label>Batch No</label>
-                </div>
-              </div>
-
-              <div class="col-md-6">
-                <div class="group">      
-                  <input  id="roll" type="number" name="roll" value="{{ $student->roll_no }}" required autocomplete="off" max="18" min="1">
-                  @error('roll')
-                    <span class="error-text">{{ $message }}</span>
-                  @enderror
-                  <span class="highlight"></span>
-                  <span class="bar"></span>
-                  <label>Roll No</label>
-                </div>
-              </div>
-            </div>
             
             <div class="form row">
               <div class="col-md-6">
                 <button type="submit" class="btn btn-get-started">Update</button>
               </div>
               <div class="col-md-6">
-                <a type="button" class="btn btn-get-started text-white" href="{{ route('student.show') }}">Cancel</a>
+                <a type="button" class="btn btn-get-started text-white" href="{{ route('teacher.show') }}">Cancel</a>
               </div>
             </div>
 

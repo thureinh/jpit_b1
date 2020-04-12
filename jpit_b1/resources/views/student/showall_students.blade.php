@@ -14,40 +14,55 @@
 </style>
 @endsection
 @section('content')
-<div class="m-5">
-<table id="students-table" class="table table-striped table-bordered">
-    <thead>
-        <tr>
-        	<th class="void"></th>
-        	<th></th>
-        	<th>No.</th>
-        	<th>Name</th>
-        	<th>Batch No</th>
-        	<th>Role No</th>
-        	<th>Date Of Birth</th>
-        	<th>Address</th>
-        </tr>
-    </thead>
-    <tbody>
-		@for ($i = 0; $i < count($students); $i++)
-			<tr id="{{ $i }}">
-				<td class="void"></td>
-				<td class="details-control">
-					<div class="d-flex justify-content-center">
-						<i class="fas fa-plus-circle fa-lg text-success"></i>
-					</div>
-				</td>
-				<td><center>{{ $i + 1 }}</center></td>
-				<td>{{ $students[$i]->firstname }} {{ $students[$i]->lastname }}</td>
-				<td>{{ $students[$i]->batch_no }}</td>
-				<td>{{ $students[$i]->roll_no }}</td>
-				<td>{{ $students[$i]->dateofbirth->format('jS F Y') }}</td>
-				<td>{{ $students[$i]->address }}</td>
-			</tr>
-		@endfor
-    </tbody>
-</table>
-</div>
+<main id="maincontent">
+
+    <section>
+
+        <div class="container">
+            <div class="row">
+                @include('part.teachermenu')
+                <div class="col-lg-9 sub-menu-content w-100">
+                    <h3 class="float-left d-inline-block mt-2">Student Table</h3>
+                    <div class="table-responsive shadow p-3 mt-3">
+                        <table id="students-table" class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="void"></th>
+                                    <th></th>
+                                    <th>No.</th>
+                                    <th>Name</th>
+                                    <th>Batch No</th>
+                                    <th>Role No</th>
+                                    <th>Date Of Birth</th>
+                                    <th>Address</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for ($i = 0; $i < count($students); $i++)
+                                    <tr id="{{ $i }}">
+                                        <td class="void"></td>
+                                        <td class="details-control">
+                                            <div class="d-flex justify-content-center">
+                                                <i class="fas fa-plus-circle fa-lg text-success"></i>
+                                            </div>
+                                        </td>
+                                        <td><center>{{ $i + 1 }}</center></td>
+                                        <td>{{ $students[$i]->firstname }} {{ $students[$i]->lastname }}</td>
+                                        <td>{{ $students[$i]->batch_no }}</td>
+                                        <td>{{ $students[$i]->roll_no }}</td>
+                                        <td>{{ $students[$i]->dateofbirth->format('jS F Y') }}</td>
+                                        <td>{{ $students[$i]->address }}</td>
+                                    </tr>
+                                @endfor
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
 @endsection
 @section('js')
 <script type="text/javascript" src="{{ asset('assets/datatables/datatables.min.js') }}"></script>

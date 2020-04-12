@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\VocabDetail;
 
-class VocabdetailController extends Controller
+class TeacherController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,18 +36,7 @@ class VocabdetailController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            "word" => "required|unique:App\VocabDetail,word",
-            "meaning" => "required"
-        ]);
-
-        $vocabdetail = new VocabDetail();
-        $vocabdetail->word = request('word');
-        $vocabdetail->meaning = request('meaning');
-        $vocabdetail->vocab_id = request('vocabid');
-        $vocabdetail->save();
-
-        return redirect()->route('vocab.show', $vocabdetail->vocab_id);
+        //
     }
 
     /**
@@ -55,9 +45,11 @@ class VocabdetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
         //
+        $teacher = Auth::user();
+        return view('teacher.show_teacher', ['teacher' => $teacher]);
     }
 
     /**
@@ -66,9 +58,11 @@ class VocabdetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
+        $teacher = Auth::user();
+        return view('teacher.edit_teacher', ['teacher' => $teacher]);
     }
 
     /**
@@ -78,9 +72,30 @@ class VocabdetailController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //
+        $teacher = Auth::user();
+        if($request->hasFile('profile'))
+        {
+            $new_profile = $request->file('profile');
+            Storage::delete($teacher->profile_pic);
+            $path = Storage::putFile('profile_images', $new_profile);
+            $teacher->profile_pic = $path;
+        }
+        $teacher->firstname = $request->firstname;
+        $teacher->lastname = $request->lastname;
+        $teacher->phone = $request->phone;
+        $teacher->dateofbirth = $request->dob;
+        $teacher->address = $request->address;
+        $teacher->batch_no = $request->batch;
+        $teacher->roll_no = $request->roll;
+        if(!is_null($request->password))
+        {
+            $teacher->password = $request->password;
+        }
+        $teacher->save();
+        return redirect()->route('teacher.show');
     }
 
     /**
@@ -91,10 +106,6 @@ class VocabdetailController extends Controller
      */
     public function destroy($id)
     {
-        $vocabdetail = VocabDetail::find($id);
-        $vocabdetail->delete();
-        
-        // return redirect()->route('vocab.show', $vocabdetail->vocab_id);
-        return '{}';
+        //
     }
 }

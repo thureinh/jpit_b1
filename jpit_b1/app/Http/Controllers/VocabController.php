@@ -96,7 +96,6 @@ class VocabController extends Controller
     {
         $vocab = Vocab::find($id);
         $vocab->delete();
-        
-        return redirect()->route('vocab.index');
+        return '{}';
     }
 }

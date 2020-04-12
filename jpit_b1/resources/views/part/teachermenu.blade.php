@@ -25,7 +25,7 @@
 	    <a href="#"><span><i class="fas fa-pen-alt"></i></span>Writing</a>
 	  </li>
 	  <li class="list-group-item  d-flex justify-content-between align-items-center">
-	    <a href="#"><span><i class="fas fa-user-friends"></i></span>Student</a>
+	    <a href="{{ route('showallstudents') }}"><span><i class="fas fa-user-friends"></i></span>Student</a>
 	  </li>
 	  <li class="list-group-item  d-flex justify-content-between align-items-center">
 	    <a href="#"><span><i class="fas fa-chalkboard-teacher"></i></span>Teacher</a>

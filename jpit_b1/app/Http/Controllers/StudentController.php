@@ -11,6 +11,15 @@ use App\User;
 class StudentController extends Controller
 {
     /**
+     * Instantiate a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware(['auth', 'sensei'])->only('index');
+    }
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -50,8 +59,8 @@ class StudentController extends Controller
      */
     public function show()
     {
-        $user = Auth::user();
-        return view('student.show_student', ['user' => $user]);
+        $student = Auth::user();
+        return view('student.show_student', ['student' => $student]);
     }
 
     /**

@@ -17,10 +17,10 @@
 					<div class="row">
 						<div class="col-lg-4">
 							<figure class="hero-image">
-								<img src="{{ asset($student->profile_pic) }}" alt="5">
+								<img src="{{ asset($teacher->profile_pic) }}" alt="5">
 							</figure>
 							<div class="edit_profile">
-								<a href='{{ url("/student/setting") }}' class="myButton"><font color="white">Edit Profile</font></a>
+								<a href='{{ url("/teacher/setting") }}' class="myButton"><font color="white">Edit Profile</font></a>
 							</div>
 						</div>
 						<div class="col-lg-1">
@@ -28,8 +28,8 @@
 						</div>
 						<div class="col-lg-7">
 							<div class="hero-text">
-								<h4>{{ $student->firstname }} {{ $student->lastname }}</h4>
-								<h6>Student</h6>
+								<h4>{{ $teacher->firstname }} {{ $teacher->lastname }}</h4>
+								<h6>Teacher</h6>
 							</div>
 							<div id="send_message" onclick="showTextbox()">
 								<button id="message">
@@ -54,11 +54,11 @@
 								<br>
 								<br>
 								<ul>
-									<li><span>Name</span>{{ $student->firstname }} {{ $student->lastname }}</li>
-									<li><span>Date of Birth</span>{{ $student->dateofbirth->format('M j, Y') }}</li>
-									<li><span>Address</span>{{ $student->address }}</li>
-									<li><span>E-mail</span>{{ $student->email }}</li>
-									<li><span>Phone </span>{{ $student->phone }}</li>
+									<li><span>Name</span>{{ $teacher->firstname }} {{ $teacher->lastname }}</li>
+									<li><span>Date of Birth</span>{{ $teacher->dateofbirth->format('M j, Y') }}</li>
+									<li><span>Address</span>{{ $teacher->address }}</li>
+									<li><span>E-mail</span>{{ $teacher->email }}</li>
+									<li><span>Phone </span>{{ $teacher->phone }}</li>
 								</ul>
 
 							</div>
