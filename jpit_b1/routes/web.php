@@ -12,23 +12,37 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Home Route
+Route::get('/', 'PagesController@index')->name('index');
+
+Auth::routes(['verify' => true]);
+
+// Home Route
 Route::get('/home', 'HomeController@index')->name('home');
 
-//Contact Rout
+// Contact Rout
 Route::get('/contactus', 'PagesController@contactus')->name('contactus');
 
-//Routes accessible only by Teacher
+// Routes accessible only by Teacher
 Route::middleware(['auth', 'sensei'])->group(function() {
 	Route::get('/senseihome', 'PagesController@senseihome')->name('senseihome');
+
+	// Control Routes of Teacher
+	Route::name('teacher.')->prefix('teacher')->group(function () {
+		Route::get('show', 'TeacherController@show')->name('show');
+		Route::get('edit', 'TeacherController@edit')->name('edit');
+		Route::put('update', 'TeacherController@update')->name('update');
+		Route::get('setting', function() {
+			return redirect()->route('teacher.edit');
+		})->middleware(['password.confirm', 'verified'])->name('setting');
+	});
 });
 
-//Routes accessible only by Student
+// Routes accessible only by Student
 Route::middleware(['auth', 'gakusei'])->group(function() {
 	Route::get('/studenthome', 'PagesController@studenthome')->name('studenthome');
-	//Control Route Of Student
+
+	// Control Routes Of Student
 	Route::name('student.')->prefix('student')->group(function () {
-	    Route::get('showall', 'StudentController@index')->name('showall');
 	    Route::get('show', 'StudentController@show')->name('show');
 		Route::get('edit', 'StudentController@edit')->name('edit');
 		Route::put('update', 'StudentController@update')->name('update');
@@ -38,12 +52,8 @@ Route::middleware(['auth', 'gakusei'])->group(function() {
 	});
 });
 
-Route::get('/', 'PagesController@index')->name('index');
-
-Auth::routes(['verify' => true]);
-
-//Student Setting Route
-
+//Individual Routes With Controller Middlewares
+Route::get('showallstudents', 'StudentController@index')->name('showallstudents');
 
 // resource controller
 

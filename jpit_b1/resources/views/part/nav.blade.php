@@ -41,7 +41,7 @@
                   </center>
               </li>
               <li class="d-flex justify-content-start">
-                <a href="{{ route('student.show') }}"><i class="fas fa-user-alt fa-lg mr-2"></i> Profile</a>
+                <a href="@if(Auth::user()->is_Teacher){{ route('teacher.show') }}@else{{ route('student.show') }}@endif" @if(!Auth::user()->is_Teacher){{'disabled'}}@endif><i class="fas fa-user-alt fa-lg mr-2"></i> Profile</a>
               </li>
               <li class="d-flex justify-content-start">
                 <a href="@if(Auth::user()->is_Teacher){{ route('senseihome') }}@else{{ route('studenthome') }}@endif"><i class="fas fa-tachometer-alt fa-lg mr-2"></i> Dashboard</a>
