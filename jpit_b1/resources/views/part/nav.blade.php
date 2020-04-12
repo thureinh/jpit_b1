@@ -28,90 +28,94 @@
           <li><a href="#course">Courses</a></li>
           <li><a href="/contactus">Contact Us</a></li>
           @auth
-          <li class="menu-has-children"><a href="javascript:void(0)">Welcome {{ Auth::user()->firstname }}</a>
+          <li class="menu-has-children">
+            <a href="javascript:void(0)">
+              <img src="{{ asset(Auth::user()->profile_pic) }}" class="rounded-circle" width="35" height="35" style="margin-top: -7px;">   <span class="px-1 font-weight-bold">{{ Auth::user()->firstname }}</span>
+            </a>
             <ul>
-              <li>
-                <div class="d-flex justify-content-center">
-                  <img src="{{ asset(Auth::user()->profile_pic) }}" class="rounded-circle" width="130" height="130">  
-                </div>
-              </li>
-              <li>
-                  <center class="text-dark pt-2 font-weight-bolder h5 my-2">
-                    {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}
-                  </center>
+              <li class="font-weight-bold text-center my-2">
+                {{ Auth::user()->firstname }} {{ Auth::user()->lastname }}</a>
               </li>
               <li class="d-flex justify-content-start">
-                <a href="{{ route('student.show') }}"><i class="fas fa-user-alt fa-lg mr-2"></i> Profile</a>
+                <a href="{{ route('student.show') }}">
+                  <i class="fas fa-user-alt mr-3"></i> My Profile
+                </a>
               </li>
               <li class="d-flex justify-content-start">
-                <a href="@if(Auth::user()->is_Teacher){{ route('senseihome') }}@else{{ route('studenthome') }}@endif"><i class="fas fa-tachometer-alt fa-lg mr-2"></i> Dashboard</a>
-              </li>
-              <li class="d-flex justify-content-start">
-                  <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                    <i class="fas fa-sign-out-alt fa-lg mr-3"></i>{{ __('Logout') }}
+                  <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementsByName('logout-form')[0].submit();">
+                    <i class="fas fa-sign-out-alt mr-3"></i>{{ __('Logout') }}
                   </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
+                <form name="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
               </li>
             </ul>
           </li>
           @endauth
 
-          <hr class="dropdown-divider" class="sub-menu-nav">
+          @auth
+            <hr class="dropdown-divider" class="sub-menu-nav">
 
-          <!-- for student -->
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-tv mr-3"></i>Dashboard</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-clipboard-list mr-3"></i>Vocabulary</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="far fa-bookmark mr-3"></i>Grammar</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-spell-check mr-3"></i>Kanji</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-book-open mr-3"></i>Reading</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-headphones-alt mr-3"></i>Listening</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-pen-alt mr-3"></i>Writing</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="far fa-bell mr-3"></i>Notification</a>
-          </li>
+            @if (Auth::user()->is_Teacher == 0)
+            <!-- for student -->
+            <li class="sub-menu-nav">
+              <a href="{{ route('studenthome') }}"><i class="fas fa-tv mr-3"></i>Dashboard</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-clipboard-list mr-3"></i>Vocabulary</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="far fa-bookmark mr-3"></i>Grammar</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-spell-check mr-3"></i>Kanji</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-book-open mr-3"></i>Reading</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-headphones-alt mr-3"></i>Listening</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-pen-alt mr-3"></i>Writing</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="far fa-bell mr-3"></i>Notification</a>
+            </li>
+            @endif
 
-          <!-- for sensei nav -->
-          <!-- <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-tv mr-3"></i>Dashboard</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-clipboard-list mr-3"></i>Vocabulary</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="far fa-bookmark mr-3"></i>Grammar</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-spell-check mr-3"></i>Kanji</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-book-open mr-3"></i>Reading</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-headphones-alt mr-3"></i>Listening</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-pen-alt mr-3"></i>Writing</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-user-friends mr-3"></i>Student</a>
-          </li>
-          <li class="sub-menu-nav">
-            <a href="#"><i class="fas fa-chalkboard-teacher mr-3"></i>Teacher</a>
-          </li> -->
+            @if (Auth::user()->is_Teacher == 1)
+            <!-- for sensei nav -->
+            <li class="sub-menu-nav">
+              <a href="{{ route('senseihome') }}"><i class="fas fa-tv mr-3"></i>Dashboard</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href=""><i class="fas fa-clipboard-check mr-3"></i>Test</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="{{ route('vocab.index') }}"><i class="fas fa-clipboard-list mr-3"></i>Vocabulary</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="far fa-bookmark mr-3"></i>Grammar</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-spell-check mr-3"></i>Kanji</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-book-open mr-3"></i>Reading</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-headphones-alt mr-3"></i>Listening</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-pen-alt mr-3"></i>Writing</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-user-friends mr-3"></i>Student</a>
+            </li>
+            <li class="sub-menu-nav">
+              <a href="#"><i class="fas fa-chalkboard-teacher mr-3"></i>Teacher</a>
+            </li>
+            @endif
+          @endauth
 
         </ul>
       </nav>

@@ -7,10 +7,10 @@
 	    <a href="#"><span><i class="fas fa-clipboard-list"></i></span>Vocabulary</a>
 	  </li>
 	  <li class="list-group-item  d-flex justify-content-between align-items-center">
-	    <a href="#"><span><i class="far fa-bookmark"></i></span>Grammar</a>
+	    <a href="#"><span><i class="fas fa-spell-check"></i></span>Grammar</a>
 	  </li>
 	  <li class="list-group-item  d-flex justify-content-between align-items-center">
-	    <a href="#"><span><i class="fas fa-spell-check"></i></span>Kanji</a>
+	    <a href="#"><span><i class="far fa-bookmark"></i></span>Kanji</a>
 	  </li>
 	  <li class="list-group-item  d-flex justify-content-between align-items-center">
 	    <a href="#"><span><i class="fas fa-book-open"></i></span>Reading</a>

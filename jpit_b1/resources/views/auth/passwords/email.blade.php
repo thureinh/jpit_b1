@@ -5,10 +5,12 @@
     <div class="m-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card shadow border-0 rounded">
+                    <div class="card-header py-3">
+                        <h5 class="m-0">{{ __('Reset Password') }}</h5>
+                    </div>
 
-                    <div class="card-body">
+                    <div class="card-body py-4">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
                                 {{ session('status') }}
@@ -34,7 +36,7 @@
 
                             <div class="form-group row mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-add btn-block">
                                         {{ __('Send Password Reset Link') }}
                                     </button>
                                 </div>

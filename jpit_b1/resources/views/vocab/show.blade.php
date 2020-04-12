@@ -17,7 +17,9 @@
 							<sup><a href="#" title="Edit Topic" class="btn btn-link text-info"><i class="far fa-edit fa-sm"></i></a></sup>
 						</h3>
 						<div class="float-right mt-2">
-							<a href="{{ route('vocab.index') }}" class="btn btn-white-cardbutton"><i class="fas fa-angle-left"></i> back</a>
+							<a href="{{ route('vocab.index') }}" class="btn btn-white-cardbutton">
+								<i class="fas fa-angle-left pr-2"></i> Back
+							</a>
 						</div>
 						<div class="clearfix"></div>
 

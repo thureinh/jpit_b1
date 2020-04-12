@@ -111,8 +111,8 @@ h1, h2, h3, h4, h5, h6 {
 # Header
 --------------------------------------------------------------*/
 #header {
-  padding: 20px 0;
-  height: 84px;
+  padding: 17px 0;
+  height: 78px;
   transition: all 0.5s;
   z-index: 997;
   background: #fff;
@@ -477,6 +477,7 @@ h1, h2, h3, h4, h5, h6 {
 
 #mobile-nav ul li {
   position: relative;
+  color: #fff;
 }
 
 #mobile-nav ul li a {
@@ -499,7 +500,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-left: 30px;
 }
 
-#mobile-nav ul .menu-has-children i {
+#mobile-nav ul .menu-has-children>i {
   position: absolute;
   right: 0;
   z-index: 99;
@@ -1644,4 +1645,35 @@ content: "\f39e"!important;
 .edited-form .check-label {
   position: static;
   pointer-events: auto;
+}
+
+.kanjicard {
+  width: 120px;
+  height: 120px;
+  font-size: 50px;
+  text-align: center;
+  line-height: 120px;
+  position: relative;
+  z-index: 10;
+  margin-bottom: 30px !important;
+}
+
+.kanjicard .horizontal {
+  position: absolute;
+  top: 57px;
+  width: 100%;
+  border: 1px dashed #ccc;
+  margin: 0;
+  padding: 0;
+  z-index: -9;
+}
+
+.kanjicard .vertical {
+  position: absolute;
+  left: 57px;
+  height: 100%;
+  border: 1px dashed #ccc;
+  margin: 0;
+  padding: 0;
+  z-index: -9;
 }

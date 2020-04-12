@@ -50,3 +50,7 @@ Auth::routes(['verify' => true]);
 Route::resource('vocab', 'VocabController');
 
 Route::resource('vocabdetail', 'VocabdetailController');
+
+Route::resource('kanji', 'KanjiController');
+
+Route::resource('kanjiword', 'KanjiwordController');
