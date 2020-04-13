@@ -140,16 +140,13 @@
 		    var dt = $('#vocablist').DataTable({
 		    	responsive: true
 		    });
-		    let asynctable = new AsyncTable(dt, "{{csrf_token()}}");
+		    let asynctable = new AsyncTable(dt, "{{csrf_token()}}", "{{url('vocabdetail')}}");
 			$('#vocablist tbody').on('click', 'a.delete-bttn', event => {
 				let tr = $(event.target).closest('tr');
-				asynctable.row = tr;
-				let id = tr.attr('id');
-				asynctable.targetRow(id);
+				asynctable.targetRow = tr;
 			});
 			$('#deleteModal button.btn-danger').on('click', event => {
-				asynctable.deleteURL = "{{url('vocab')}}";
-				asynctable.delete();
+				asynctable.deleteRow();
 			});
 		});
 	</script>

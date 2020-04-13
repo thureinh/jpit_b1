@@ -85,7 +85,7 @@
 											<td>{{$vocabdetail->word}}</td>
 											<td>{{$vocabdetail->meaning}}</td>
 											<td>
-												<a href="#" class="btn btn-outline-info btn-sm"><i class="far fa-edit"></i> Edit</a>
+												<a href="#" class="btn btn-outline-info btn-sm edit-bttn" data-toggle="modal"><i class="far fa-edit"></i> Edit</a>
 
 					                			<a href="#deleteModal" data-toggle="modal" name="btndelete" class="btn btn-outline-danger btn-sm delete-bttn"><i class="far fa-trash-alt"></i> Remove</a>
 
@@ -107,6 +107,46 @@
 @endsection
 
 @section('modal')
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Edit Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form id="updateForm">
+		  <div class="form-group">
+		    <label for="exampleFormControlSelect1">Vocab</label>
+		    <select class="form-control" name="topic" id="exampleFormControlSelect1">
+		    	@foreach($topics as $topic)
+		    		<option value="{{ $topic->id }}">{{$topic->topic}}</option>
+		    	@endforeach
+		    </select>
+		  </div>
+		  <div class="form-row">
+		    <div class="form-group col-md-6">
+		      <label for="input001">Word</label>
+		      <input type="text" name="word" class="form-control" id="input001">
+		    </div>
+		    <div class="form-group col-md-6">
+		      <label for="input002">Meaning</label>
+		      <input type="text" name="meaning" class="form-control" id="input002">
+		    </div>
+		  </div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Delete Confirmation Modal -->
 <div id="deleteModal" class="modal fade">
 	<div class="modal-dialog modal-confirm">
@@ -137,15 +177,28 @@
 		    var dt = $('#vocablist').DataTable({
 		    	responsive: true
 		    });
-		    let asynctable = new AsyncTable(dt, "{{csrf_token()}}");
+		    let asynctable = new AsyncTable(dt, "{{csrf_token()}}", "{{url('vocabdetail')}}");
 		    $('#vocablist tbody').on('click', 'a.delete-bttn', event => {
 				let tr = $(event.target).closest('tr');
-				let id = tr.attr('id');
-				asynctable.targetRow(id);
+				asynctable.targetRow = tr;
 			});
 			$('#deleteModal button.btn-danger').on('click', event => {
-				asynctable.deleteURL = "{{url('vocabdetail')}}";
-				asynctable.delete();
+				asynctable.deleteRow();
+			});
+
+			$('#vocablist tbody').on('click', 'a.edit-bttn', event => {
+				let tr = $(event.target).closest('tr');
+				let modal_func = (data) => {
+					$('#editModal').find('input[name="word"]').val(data.word);
+					$('#editModal').find('input[name="meaning"]').val(data.meaning);
+					$('#editModal').modal('show');
+				}
+				asynctable.targetRow = tr;
+				asynctable.editRow(modal_func);
+			});
+			$('#editModal').on('click', ':submit', event => {
+				event.preventDefault();
+				asynctable.updateRow($('#updateForm'));
 			});
 		});
 	</script>

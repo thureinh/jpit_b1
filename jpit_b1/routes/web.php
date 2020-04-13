@@ -35,6 +35,15 @@ Route::middleware(['auth', 'sensei'])->group(function() {
 			return redirect()->route('teacher.edit');
 		})->middleware(['password.confirm', 'verified'])->name('setting');
 	});
+	
+	// resource controller
+	Route::resource('vocab', 'VocabController');
+
+	Route::resource('vocabdetail', 'VocabdetailController');
+
+	Route::resource('kanji', 'KanjiController');
+
+	Route::resource('kanjiword', 'KanjiwordController');
 });
 
 // Routes accessible only by Student
@@ -54,13 +63,3 @@ Route::middleware(['auth', 'gakusei'])->group(function() {
 
 //Individual Routes With Controller Middlewares
 Route::get('showallstudents', 'StudentController@index')->name('showallstudents');
-
-// resource controller
-
-Route::resource('vocab', 'VocabController');
-
-Route::resource('vocabdetail', 'VocabdetailController');
-
-Route::resource('kanji', 'KanjiController');
-
-Route::resource('kanjiword', 'KanjiwordController');

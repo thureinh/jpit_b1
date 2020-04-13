@@ -11,6 +11,10 @@ class VocabsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Vocab::class, 100)->create();
+        factory(App\Vocab::class, 100)->create()
+        ->each(function ($vocab){
+        	$vocab->vocabdetails()->createMany(
+        		factory(App\VocabDetail::class, 50)->make()->toArray());
+        });
     }
 }

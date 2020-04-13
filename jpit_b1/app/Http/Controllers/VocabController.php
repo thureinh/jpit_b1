@@ -58,9 +58,10 @@ class VocabController extends Controller
      */
     public function show($id)
     {
+        $topics = Vocab::all('id', 'topic');
         $vocab = Vocab::find($id);
         $vocabdetails = Vocab::find($id)->vocabdetails;
-        return view('vocab.show', compact('vocab', 'vocabdetails'));
+        return view('vocab.show', compact('vocab', 'vocabdetails', 'topics'));
     }
 
     /**

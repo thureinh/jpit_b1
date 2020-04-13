@@ -68,7 +68,8 @@ class VocabdetailController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vocabDetail = VocabDetail::find($id);
+        return json_encode($vocabDetail);
     }
 
     /**
@@ -80,7 +81,12 @@ class VocabdetailController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vocabdetail = VocabDetail::find($id);
+        $vocabdetail->vocab_id = $request->topic;
+        $vocabdetail->word = $request->word;
+        $vocabdetail->meaning = $request->meaning;
+        $vocabdetail->save();
+        return json_encode($vocabdetail);
     }
 
     /**
@@ -97,4 +103,5 @@ class VocabdetailController extends Controller
         // return redirect()->route('vocab.show', $vocabdetail->vocab_id);
         return '{}';
     }
+
 }
