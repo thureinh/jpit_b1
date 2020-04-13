@@ -70,7 +70,8 @@ class KanjiwordController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kanjiword = KanjiWord::find($id);
+        return json_encode($kanjiword);
     }
 
     /**
@@ -82,7 +83,13 @@ class KanjiwordController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $kanjiword = KanjiWord::find($id);
+        $kanjiword->kanji_id = $request->kanji;
+        $kanjiword->word = $request->word;
+        $kanjiword->yomikata = $request->yomikata;
+        $kanjiword->meaning = $request->meaning; 
+        $kanjiword->save();
+        return json_encode($kanjiword);
     }
 
     /**
@@ -93,6 +100,8 @@ class KanjiwordController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $kanjiword = KanjiWord::find($id);
+        $kanjiword->delete();
+        return '{}';
     }
 }

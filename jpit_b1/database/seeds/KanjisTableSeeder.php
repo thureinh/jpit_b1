@@ -11,7 +11,7 @@ class KanjisTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Kanji::class, 500)->create()
+        factory(App\Kanji::class, 100)->create()
         ->each(function ($kanji){
         	$kanji->kanjiwords()
         	->createMany(factory(App\KanjiWord::class, 50)

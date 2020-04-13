@@ -34,21 +34,20 @@ class AsyncTable
 	}
 	deleteRow = () => {
 		let header = this.csrf;
+		let deleter = this.deleteDTRow;
 		$.ajax({
 			'url': this._url + "/" + this._rowid,
 			'type': 'DELETE',
 			'dataType': 'json',
 			'beforeSend': function (xhr){ xhr.setRequestHeader('X-CSRF-TOKEN', header); },
 			'success': function (result){
-				deleteDTRow();
+				deleter();
 			}
 		});
-		let deleteDTRow = () => {
-			this.table.row(this._row).remove().draw(false);
-		};  
 	}
-	updateRow = (form) => {
+	updateRow = (form, arr, parents) => {
 		let header = this.csrf;
+		let updater = this.updateDTRow;
 		$.ajax({		
 			'url': this._url + "/" + this._rowid,
 			'type': 'PUT',
@@ -56,18 +55,36 @@ class AsyncTable
 			'data': form.serialize(),
 			'beforeSend': function (xhr){ xhr.setRequestHeader('X-CSRF-TOKEN', header); },
 			'success': function (result){
-				updateDTRow(result);
+				updater(result, arr, parents);
 			}
-		});
-		let updateDTRow = (data) => {
-			let temp = this.table.row(this._row).data();
-			let newData = Object.keys(data).map(function (key){
-				return data[key];
-			});
-			temp[1] = newData[1];
-			temp[2] = newData[2];
-			this.table.row(this._row).data(temp).draw(false);
-		}
+		});	
+	}
+ 	deleteDTRow = () => {
+			this.table.row(this._row).remove().draw(false);
+	}
+	updateDTRow = (data, arr, parents = []) => {
+			let parentChanged = false;
+			console.log(parents);
+			console.log(data);
+			if(parents.length !== 0)
+			{
+				if(parents[0] !== data[parents[1]])
+					parentChanged = true; 
+			}
+
+			if(parentChanged)
+			{
+				this.deleteDTRow();
+			}
+			else
+			{
+				let row_data = this.table.row(this._row).data();
+				for (let i = 0; i < arr.length; i++) {
+				 	if(arr[i] === '') continue;
+				 	row_data[i] = data[arr[i]];
+				}
+				this.table.row(this._row).data(row_data).draw(false);
+			}
 	}
 	editRow = (callback) => {
 		let header = this.csrf;

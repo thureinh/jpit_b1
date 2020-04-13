@@ -99,8 +99,6 @@ class VocabdetailController extends Controller
     {
         $vocabdetail = VocabDetail::find($id);
         $vocabdetail->delete();
-        
-        // return redirect()->route('vocab.show', $vocabdetail->vocab_id);
         return '{}';
     }
 

@@ -63,9 +63,10 @@ class KanjiController extends Controller
      */
     public function show($id)
     {
+        $kanjis = Kanji::all(['id', 'kanji']);
         $kanji = Kanji::find($id);
         $kanjiwords = Kanji::find($id)->kanjiwords;
-        return view('kanji.show', compact('kanji', 'kanjiwords'));
+        return view('kanji.show', compact('kanji', 'kanjiwords', 'kanjis'));
     }
 
     /**
@@ -88,9 +89,8 @@ class KanjiController extends Controller
      */
     public function update(Request $request, $id)
     {
-
         $kanji = Kanji::find($id);
-        $kanji->kanji = $request->kanji;
+        $kanji->kanji = $request->topic;
         $kanji->save();
         return back();
     }
@@ -103,6 +103,6 @@ class KanjiController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

@@ -1,5 +1,10 @@
 @extends('template')
 
+@section('css')
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/customs/deleteform.css') }}">
+@endsection
+
 @section('content')
 
 	<main id="maincontent">
@@ -72,12 +77,15 @@
 										@php $i = 0 @endphp
 										@foreach($kanjiwords as $kanjiword)
 										@php $i++ @endphp 
-										<tr>
+										<tr id="tr-{{$kanjiword->id}}">
 											<td>{{$i}}.</td>
 											<td>{{$kanjiword->word}}</td>
 											<td>{{$kanjiword->yomikata}}</td>
 											<td>{{$kanjiword->meaning}}</td>
 											<td>
+												<a href="#" class="btn btn-outline-info btn-sm edit-bttn" data-toggle="modal"><i class="far fa-edit"></i> Edit</a>
+
+					                			<a href="#deleteModal" data-toggle="modal" name="btndelete" class="btn btn-outline-danger btn-sm delete-bttn"><i class="far fa-trash-alt"></i> Remove</a>
 											</td>
 										</tr>
 
@@ -146,6 +154,52 @@
 @endsection
 
 @section('modal')
+	@include('modals.delete_confirm')
+
+<!-- Edit Modal -->
+<div class="modal fade" id="editModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Edit Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      	<form id="updateForm">
+		  <div class="form-group">
+		    <label for="exampleFormControlSelect1">Kanji</label>
+		    <select class="form-control" name="kanji" id="exampleFormControlSelect1">
+		    	@foreach($kanjis as $kanjiz)
+		    		<option value="{{ $kanjiz->id }}" @if($kanji->id == $kanjiz->id) {{ 'selected' }}@endif>{{$kanjiz->kanji}}</option>
+		    	@endforeach
+		    </select>
+		  </div>
+		  <div class="form-row">
+		    <div class="form-group col-md-4">
+		      <label for="input001">Word</label>
+		      <input type="text" name="word" class="form-control" id="input001">
+		    </div>
+		    <div class="form-group col-md-4">
+		   		<label for="input003">Yomikata</label>
+		      	<input type="text" name="yomikata" class="form-control" id="input003">
+		    </div>
+		    <div class="form-group col-md-4">
+		      <label for="input002">Meaning</label>
+		      <input type="text" name="meaning" class="form-control" id="input002">
+		    </div>
+		  </div>
+		</form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Edit Topic Modal -->
 <div class="modal fade" id="edit-topic-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -164,7 +218,7 @@
 	      				@csrf
 		   	  			@method('PUT')
 						<label for="input0234" class="h5 text-center mx-auto">Vocab Topic</label>
-			        	<input type="text" id="input0234" class="form-control" name="kanji" value="{{$kanji->kanji}}">
+			        	<input type="text" id="input0234" class="form-control" name="topic" value="{{$kanji->kanji}}">
 			        </div>
 		       	</form>
 	      
@@ -179,11 +233,37 @@
 @endsection
 
 @section('js')
+	<script type="text/javascript" src="{{asset('assets/customs/asynctable.js')}}"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
-	    $('#kanjilist').DataTable({
-	    	responsive: true
-	    });
+		    var dt = $('#kanjilist').DataTable({
+		    	responsive: true
+		    });
+		    let asynctable = new AsyncTable(dt, "{{csrf_token()}}", "{{url('kanjiword')}}");
+		   	$('#kanjilist tbody').on('click', 'a.delete-bttn', event => {
+				let tr = $(event.target).closest('tr');
+				asynctable.targetRow = tr;
+			});
+			$('#deleteModal button.btn-danger').on('click', event => {
+				asynctable.deleteRow();
+			});
+
+			$('#kanjilist tbody').on('click', 'a.edit-bttn', event => {
+				let tr = $(event.target).closest('tr');
+				let modal_func = (data) => {
+					$('#editModal').find('input[name="word"]').val(data.word);
+					$('#editModal').find('input[name="yomikata"]').val(data.yomikata);
+					$('#editModal').find('input[name="meaning"]').val(data.meaning);
+					$('#editModal').modal('show');
+				}
+				asynctable.targetRow = tr;
+				asynctable.editRow(modal_func);
+			});
+			$('#editModal').on('click', ':submit', event => {
+				event.preventDefault();
+				let insertOrder = ['', 'word', 'yomikata', 'meaning'];
+				asynctable.updateRow($('#updateForm'), insertOrder, ['{{$kanji->id}}', 'kanji_id']);
+			});
 		});
 	</script>
 @endsection
