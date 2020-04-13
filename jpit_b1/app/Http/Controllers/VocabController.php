@@ -84,7 +84,10 @@ class VocabController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vocab = Vocab::find($id);
+        $vocab->topic = $request->topic;
+        $vocab->save();
+        return back();
     }
 
     /**

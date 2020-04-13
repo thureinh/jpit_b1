@@ -88,7 +88,11 @@ class KanjiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $kanji = Kanji::find($id);
+        $kanji->kanji = $request->kanji;
+        $kanji->save();
+        return back();
     }
 
     /**

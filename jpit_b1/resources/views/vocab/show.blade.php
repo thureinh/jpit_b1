@@ -19,7 +19,7 @@
 						
 						<h3 class="float-left d-inline-block mt-2 mb-4">
 							Topic - {{ $vocab->topic }} 
-							<sup><a href="#" title="Edit Topic" class="btn btn-link text-info"><i class="far fa-edit fa-sm"></i></a></sup>
+								<sup><a href="#" title="Edit Topic" class="btn btn-link text-info" data-toggle="modal" data-target="#edit-topic-modal"><i class="far fa-edit fa-sm"></i></a></sup>
 						</h3>
 						<div class="float-right mt-2">
 							<a href="{{ route('vocab.index') }}" class="btn btn-white-cardbutton">
@@ -143,6 +143,37 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" data-dismiss="modal">Update</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Topic Modal -->
+<div class="modal fade" id="edit-topic-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+	      
+	   	  <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Edit</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+
+	      		<form id="edit-topic-form" method="POST" action="{{ route('vocab.update', ['vocab' => $vocab->id]) }}">
+	      			<div class="form-group">
+	      				@csrf
+		   	  			@method('PUT')
+						<label for="input0234" class="h5 text-center mx-auto">Vocab Topic</label>
+			        	<input type="text" id="input0234" class="form-control" name="topic" value="{{$vocab->topic}}">
+			        </div>
+		       	</form>
+	      
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+	        <button type="button" onClick="document.getElementById('edit-topic-form').submit()" class="btn btn-primary">Save changes</button>
+	      </div>
     </div>
   </div>
 </div>
