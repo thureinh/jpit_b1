@@ -99,10 +99,7 @@ class StudentController extends Controller
         $student->address = $request->address;
         $student->batch_no = $request->batch;
         $student->roll_no = $request->roll;
-        if(!is_null($request->password))
-        {
-            $student->password = $request->password;
-        }
+       
         $student->save();
         return redirect()->route('student.show');
     }

@@ -1328,7 +1328,7 @@ content: "\f39e"!important;
 }
 
 @media (min-width: 992px) {
-  #maincontent .sub-menu {
+  #maincontent .sub-menu, #maincontent .profile-image {
     -ms-flex: 0 0 21%;
     flex: 0 0 21%;
     max-width: 21%;
@@ -1676,4 +1676,93 @@ content: "\f39e"!important;
   margin: 0;
   padding: 0;
   z-index: -9;
+}
+
+/*--------------------------------------------------------------
+# FROM MMT USER PROFILE
+--------------------------------------------------------------*/
+
+/* Preloder */
+#preloder {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 999999;
+  background: #fff;
+}
+
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 3px solid #000;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -13px;
+  margin-left: -13px;
+  border-radius: 60px;
+  border-left-color: transparent;
+  animation: loader 0.8s linear infinite;
+  -webkit-animation: loader 0.8s linear infinite;
+}
+
+@keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes loader {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+/*--------------------------------------------------------------
+# USER PROFILE
+--------------------------------------------------------------*/
+#profile img {
+  border-radius: 30px;
+}
+#profile .img-wrap {
+  border-radius: 30px;
+}
+#profile .mobile-view {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #profile .info {
+    margin-top: 30px;
+  }
+
+  #profile .img-wrap {
+    width: 50%;
+    margin: auto;
+  }
+
+  #profile .mobile-view {
+    display: block;
+  }
+
+  #profile .desktop-view {
+    display: none;
+  }
 }

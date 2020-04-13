@@ -71,22 +71,3 @@ h1 {
   height: 100%;
   opacity: 0;
 }
-
-.btn {
-  display: block;
-  width: 140px;
-  height: 40px;
-  background: darkmagenta;
-  color: #fff;
-  border-radius: 3px;
-  border: 0;
-  box-shadow: 0 3px 0 0 hotpink;
-  -webkit-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-  font-size: 14px;
-}
-
-.btn:hover {
-  background: rebeccapurple;
-  box-shadow: 0 3px 0 0 deeppink;
-}

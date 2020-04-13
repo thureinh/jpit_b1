@@ -179,3 +179,13 @@
   });
 
 })(jQuery);
+
+  // FROM MMT FOR PRE LOADER
+  $(window).on('load', function() { 
+  /*------------------
+    Preloder
+  --------------------*/
+  $(".loader").fadeOut(); 
+  $("#preloder").delay(400).fadeOut("slow");
+
+});

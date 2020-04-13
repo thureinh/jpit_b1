@@ -90,10 +90,7 @@ class TeacherController extends Controller
         $teacher->address = $request->address;
         $teacher->batch_no = $request->batch;
         $teacher->roll_no = $request->roll;
-        if(!is_null($request->password))
-        {
-            $teacher->password = $request->password;
-        }
+        
         $teacher->save();
         return redirect()->route('teacher.show');
     }

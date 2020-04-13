@@ -1,100 +1,85 @@
 @extends('template')
-@section('css')
-<link rel="stylesheet" href="{{ asset('assets/mmt/css/flaticon.css') }}"/>
-<link rel="stylesheet" href="{{ asset('assets/mmt/css/magnific-popup.css') }}"/>
-<link rel="stylesheet" href="{{ asset('assets/mmt/css/style.css') }}"/>
-@endsection
 @section('content')
 	<!-- Page Preloder -->
 	<div id="preloder">
 		<div class="loader"></div>
 	</div>
-	<!-- Hero section start -->
-	<section class="hero-section spad">
-		<div class="container">
-			<div class="row">
-				<div class="col-xl-10 offset-xl-0">
-					<div class="row">
-						<div class="col-lg-4">
-							<figure class="hero-image">
-								<img src="{{ asset($student->profile_pic) }}" alt="5">
-							</figure>
-							<div class="edit_profile">
-								<a href='{{ url("/student/setting") }}' class="myButton"><font color="white">Edit Profile</font></a>
-							</div>
+
+	<main id="maincontent">
+
+		<section id="profile">
+
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 profile-image">
+						<div class="img-wrap shadow">
+							<img src="{{ asset($student->profile_pic) }}" alt="5" class="img-fluid">
 						</div>
-						<div class="col-lg-1">
-							
+
+						<div class="mobile-view pt-3">
+							<h4 class="text-center">{{ $student->firstname }} {{ $student->lastname }}</h4>
+							<h6 class="text-secondary text-center">Student</h6>
 						</div>
-						<div class="col-lg-7">
-							<div class="hero-text">
+
+						<div class="py-3">
+							<a href='{{ url("/student/setting") }}' class="btn btn-add btn-block"><i class="far fa-edit"></i> Edit Profile</a>
+							<a href="{{ route('password.request') }}" class="btn btn-outline-secondary btn-block"><i class="fas fa-key"></i> Change Password</a>
+						</div>
+					</div>
+
+					<div class="col-md-9 sub-menu-content">
+						<div class="px-lg-4">
+							<div class="desktop-view">
 								<h4>{{ $student->firstname }} {{ $student->lastname }}</h4>
-								<h6>Student</h6>
-							</div>
-							<div id="send_message" onclick="showTextbox()">
-								<button id="message">
-									<img src="{{asset('assets/mmt/icon-fonts/message.png')}}" height="20px">
-									<font color="black">Send Message</font>
-								</button>
+								<h6 class="text-secondary">student</h6>
 							</div>
 
+							<div class="shadow p-4 rounded info">
+								<h6 class="font-italic" style="color: #aaa;">Basic Information</h6>
+								<div class="row">
+									<label class="col-4 col-lg-3 font-weight-bold">Name: </label>
+									<div class="col-8 col-lg-9">{{ $student->firstname }} {{ $student->lastname }}</div>
+								</div>
+								<div class="row">
+									<label class="col-4 col-lg-3 font-weight-bold">Date of Birth: </label>
+									<div class="col-8 col-lg-9">{{ $student->dateofbirth->format('M j, Y') }}</div>
+								</div>
+								<div class="row">
+									<label class="col-4 col-lg-3 font-weight-bold">Address: </label>
+									<div class="col-8 col-lg-9">{{ $student->address }}</div>
+								</div>
+								<div class="row">
+									<label class="col-4 col-lg-3 font-weight-bold">Email: </label>
+									<div class="col-8 col-lg-9">{{ $student->email }}</div>
+								</div>
+								<div class="row">
+									<label class="col-4 col-lg-3 font-weight-bold">Phone: </label>
+									<div class="col-8 col-lg-9">{{ $student->phone }}</div>
+								</div>
 
-							<div class="_secondary" id="send_text" style="display: none">
-									<button class="post" id="send_button">Send</button>
-									<textarea class="_twemoji_textarea" rows="7"></textarea>
+								<hr>
+
+								<h6 class="font-italic" style="color: #aaa;">Class Information</h6>
+								<div class="row">
+									<label class="col-4 col-lg-3 font-weight-bold">Batch No: </label>
+									<div class="col-8 col-lg-9"> Batch - {{ $student->batch_no }}</div>
+								</div>
+								<div class="row">
+									<label class="col-4 col-lg-3 font-weight-bold">Roll No: </label>
+									<div class="col-8 col-lg-9"> 1C - {{ $student->roll_no }}</div>
+								</div>
 							</div>
 
 
-							<!-- <div id="send_text" style="display: none">
-								<input type="text" value="Hey">
-							</div> -->
-							<hr>
-							<div class="hero-info">
-								<font size="-1" style="color: silver;">Basic Information</font>
-								<br>
-								<br>
-								<ul>
-									<li><span>Name</span>{{ $student->firstname }} {{ $student->lastname }}</li>
-									<li><span>Date of Birth</span>{{ $student->dateofbirth->format('M j, Y') }}</li>
-									<li><span>Address</span>{{ $student->address }}</li>
-									<li><span>E-mail</span>{{ $student->email }}</li>
-									<li><span>Phone </span>{{ $student->phone }}</li>
-								</ul>
-
+							<div class="my-4">
+								<a href="{{ route('studenthome') }}" class="btn btn-block btn-white-cardbutton rounded-0">
+									<i class="fas fa-home pr-2"></i> Back to Dashboard
+								</a>
 							</div>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-			<div class="row" style="padding-top: 50px">
-				<div class="col-xl-5">
-					
-				</div>
-				<div class="col-xl-6 offset-xl-1">
-					<div class="social-link-warp">
-						<div class="social-links">
-							<a href=""><img id="fb" src="{{asset('assets/mmt/img/facebook.png')}}" width="43px" height="43px"></a> &nbsp;
-							<a href=""><img id="inst" src="{{asset('assets/mmt/img/instagram.png')}}"></a>
-							<!-- <a href=""><i class="fa fa-instagram"></i></a>
-							<a href=""><i class="fa fa-facebook"></i></a>
-							<a href=""><i class="fa fa-twitter"></i></a> -->
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-</section>
-@endsection
-@section('js')
-<script src="{{ asset('assets/mmt/js/magnific-popup.min.js') }}"></script>
-<script src="{{ asset('assets/mmt/js/circle-progress.min.js') }}"></script>
-<script src="{{ asset('assets/mmt/js/main.js') }}"></script>
-<script>
-function showTextbox() {
-	document.getElementById("send_message").style.display = "none";
-	document.getElementById("send_text").style.display = "block";
-}
-</script>
+		</section>
+	</main>
 @endsection
