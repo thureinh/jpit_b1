@@ -56,10 +56,28 @@
 							</div>
 
 							<hr>
+							<!-- handwriting -->
+							<div class="table-responsive p-3 mt-3">
+								<h5>Stroke Order and Writing</h5>
+								<div class="row">
+									<div class="col-lg-3">
+										<div id="draw" style="width: 110px;" class="shadow m-auto"></div>
+									</div>
+									<div class="col-lg-9">
+										<div class="kanji-button">
+											<button id="rewind" class="btn btn-sm btn-info"><i class="fas fa-angle-left"></i></button>
+					            <button id="play" class="btn btn-sm btn-info"><i class="fas fa-play fa-sm"></i></button>
+					            <button id="pause" class="btn btn-sm btn-info"><i class="fas fa-pause fa-sm"></i></button>
+					            <button id="forward" class="btn btn-sm btn-info"><i class="fas fa-angle-right"></i></button>
+				            </div>
+									</div>
+								</div>
+							</div>
+							<hr>
 
 							<!-- kanji detail list -->
 							<div class="table-responsive p-3 mt-3">
-							<h5>Related word with「 {{ $kanji->kanji }} 」</h5>
+							<h5>Related words with「 {{ $kanji->kanji }} 」</h5>
 							@if(count($kanjiwords) == 0)
 								<p>Please insert example words or related words of「 {{ $kanji->kanji }} 」.</p>
 							@else
@@ -234,6 +252,12 @@
 
 @section('js')
 	<script type="text/javascript" src="{{asset('assets/customs/asynctable.js')}}"></script>
+	
+	<script src="{{asset('assets/dmak/dmak.js')}}"></script>
+	<script src="{{asset('assets/dmak/jquery.dmak.js')}}"></script>
+	<script src="{{asset('assets/dmak/raphael-min.js')}}"></script>
+
+
 	<script type="text/javascript">
 		$(document).ready(function() {
 		    var dt = $('#kanjilist').DataTable({
@@ -265,5 +289,30 @@
 				asynctable.updateRow($('#updateForm'), insertOrder, ['{{$kanji->id}}', 'kanji_id']);
 			});
 		});
+	</script>
+
+	<script type="text/javascript">
+		$("#draw").dmak('{{$kanji->kanji}}');
+
+		$( document ).on( "click", "#play", function(e){
+        e.preventDefault();
+       $('#draw').dmak('play');
+    });
+
+    $( document ).on( "click", "#pause", function(e){
+        e.preventDefault();
+        $('#draw').dmak('pause');
+    });
+
+    $( document ).on( "click", "#rewind", function(e){
+        e.preventDefault();
+        $('#draw').dmak('rewind', 1);
+    });
+
+    $( document ).on( "click", "#forward", function(e){
+        e.preventDefault();
+        $('#draw').dmak('forward', 1);
+    });
+
 	</script>
 @endsection

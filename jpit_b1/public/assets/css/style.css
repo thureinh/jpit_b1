@@ -1766,3 +1766,10 @@ content: "\f39e"!important;
     display: none;
   }
 }
+
+@media (max-width: 768px) {
+  .kanji-button {
+    text-align: center;
+    margin-top: 20px;
+  }
+}

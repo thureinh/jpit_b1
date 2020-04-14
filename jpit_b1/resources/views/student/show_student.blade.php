@@ -31,7 +31,7 @@
 						<div class="px-lg-4">
 							<div class="desktop-view">
 								<h4>{{ $student->firstname }} {{ $student->lastname }}</h4>
-								<h6 class="text-secondary">student</h6>
+								<h6 class="text-secondary">Student</h6>
 							</div>
 
 							<div class="shadow p-4 rounded info">
