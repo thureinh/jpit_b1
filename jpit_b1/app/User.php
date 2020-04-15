@@ -18,15 +18,10 @@ class User extends Authenticatable implements MustVerifyEmail
     protected static function booted()
     {
         static::updating(function ($user) {
-            //
-            if($user->isClean('email'))
+            if($user->isDirty('email'))
             {
-                // $user->email_verified_at = null;
-                // $user->sendEmailVerificationNotification();
-                Log::info($user->email . " is clean and Send Verfication");
-            }
-            else{
-                Log::info($user->email . " is dirty and Send Verfication");
+                $user->email_verified_at = null;
+                $user->sendEmailVerificationNotification();
             }
         });
     }

@@ -85,6 +85,7 @@ class StudentController extends Controller
     public function update(Request $request)
     {
         $student = Auth::user();
+        $redirectToVerify = ($student->email == $request->email) ? false : true;
         if($request->hasFile('profile'))
         {
             $new_profile = $request->file('profile');
@@ -98,11 +99,14 @@ class StudentController extends Controller
         $student->phone = $request->phone;
         $student->dateofbirth = $request->dob;
         $student->address = $request->address;
-        $student->batch_no = $request->batch;
-        $student->roll_no = $request->roll;
-       
+        $student->batch_no = $request->batch_no;
+        $student->roll_no = $request->roll_no;
         $student->save();
-        return redirect()->route('student.show');
+        
+        if($redirectToVerify)
+            return redirect()->route('verification.notice');
+        else
+            return redirect()->route('student.show');
     }
 
     /**

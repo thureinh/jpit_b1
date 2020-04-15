@@ -123,8 +123,8 @@
                 <div class="form row">
                   <div class="col-md-6">
                     <div class="group">      
-                      <input  id="batch" type="number" name="batch" value="{{ $student->batch_no }}" required autocomplete="off" min="1" max="3">
-                      @error('batch')
+                      <input  id="batch" type="number" name="batch_no" value="{{ $student->batch_no }}" required autocomplete="off" min="1" max="3">
+                      @error('batch_no')
                         <span class="error-text">{{ $message }}</span>
                       @enderror
                       <span class="highlight"></span>
@@ -135,8 +135,8 @@
 
                   <div class="col-md-6">
                     <div class="group">      
-                      <input  id="roll" type="number" name="roll" value="{{ $student->roll_no }}" required autocomplete="off" max="18" min="1">
-                      @error('roll')
+                      <input  id="roll" type="number" name="roll_no" value="{{ $student->roll_no }}" required autocomplete="off" max="18" min="1">
+                      @error('roll_no')
                         <span class="error-text">{{ $message }}</span>
                       @enderror
                       <span class="highlight"></span>
