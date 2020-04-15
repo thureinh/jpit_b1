@@ -5,11 +5,31 @@ namespace App;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Log;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
-
+    /**
+     * The "booted" method of the model.
+     *
+     * @return void
+     */
+    protected static function booted()
+    {
+        static::updating(function ($user) {
+            //
+            if($user->isClean('email'))
+            {
+                // $user->email_verified_at = null;
+                // $user->sendEmailVerificationNotification();
+                Log::info($user->email . " is clean and Send Verfication");
+            }
+            else{
+                Log::info($user->email . " is dirty and Send Verfication");
+            }
+        });
+    }
     /**
      * The attributes that are mass assignable.
      *

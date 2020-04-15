@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->boolean('is_Teacher')->default(false);
             $table->rememberToken();
             $table->timestamps();
+            $table->unique(['batch_no', 'roll_no']);
         });
     }
 

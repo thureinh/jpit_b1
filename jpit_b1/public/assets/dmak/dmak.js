@@ -470,7 +470,7 @@
 			return;
 		}
 
-		xhr.open("GET", 'http://localhost:8000/' + 'assets/kanji/' + code + ".svg", true);
+		xhr.open("GET", 'http://127.0.0.1:8000/' + 'assets/kanji/' + code + ".svg", true);
 		xhr.onreadystatechange = function () {
 			if (xhr.readyState === 4) {
 				if (xhr.status === 200) {

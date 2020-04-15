@@ -77,7 +77,8 @@ class KanjiController extends Controller
      */
     public function edit($id)
     {
-        //
+        $kanji = Kanji::find($id);
+        return json_encode($kanji);
     }
 
     /**
@@ -90,9 +91,22 @@ class KanjiController extends Controller
     public function update(Request $request, $id)
     {
         $kanji = Kanji::find($id);
-        $kanji->kanji = $request->topic;
-        $kanji->save();
-        return back();
+        if($request->boolean('detail_update'))
+        {
+            $kanji->kanji = $request->kanji;
+            $kanji->konyomi = $request->konyomi;
+            $kanji->onyomi = $request->onyomi;
+            $kanji->example = $request->example;
+            $kanji->save();
+            return json_encode($kanji);
+        }
+        else{
+            $kanji->kanji = $request->topic;
+            $kanji->save();
+            return back();
+        }
+        
+
     }
 
     /**
@@ -103,6 +117,8 @@ class KanjiController extends Controller
      */
     public function destroy($id)
     {
-
+        $kanji = Kanji::find($id);
+        $kanji->delete();
+        return '{}';
     }
 }

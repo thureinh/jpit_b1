@@ -56,6 +56,8 @@ class RegisterController extends Controller
             'lastname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'batch_no' => 'required|unique_with:users, roll_no',
+            'roll_no' => 'required'
         ]);
     }
 
@@ -77,8 +79,8 @@ class RegisterController extends Controller
             'address' => $data['address'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'batch_no' => $data['batch'],
-            'roll_no' => $data['roll']
+            'batch_no' => $data['batch_no'],
+            'roll_no' => $data['roll_no']
         ]);
     }
 }

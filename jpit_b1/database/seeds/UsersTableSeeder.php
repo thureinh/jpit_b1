@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        // factory(App\User::class, 500)->create();
+        factory(App\User::class, 50)->create();
         DB::table('users')->insert([
             'profile_pic' => 'assets/img/sensei.jpg',
             'firstname' => 'Hsumon',

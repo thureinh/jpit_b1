@@ -94,6 +94,7 @@ class StudentController extends Controller
         }
         $student->firstname = $request->firstname;
         $student->lastname = $request->lastname;
+        $student->email = $request->email;
         $student->phone = $request->phone;
         $student->dateofbirth = $request->dob;
         $student->address = $request->address;

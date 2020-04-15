@@ -24,7 +24,7 @@
 										</div>
 										<div class="col-7 col-md-8">
 											<div class="numbers text-right">
-												<span>18</span>
+												<span>{{$studentcount}}</span>
 												<p class="m-0">STUDENTS</p>
 											</div>
 										</div>
@@ -40,7 +40,7 @@
 										</div>
 										<div class="col-7 col-md-8">
 											<div class="numbers text-right">
-												<span>3</span>
+												<span>{{$teachercount}}</span>
 												<p class="m-0">TEACHERS</p>
 											</div>
 										</div>

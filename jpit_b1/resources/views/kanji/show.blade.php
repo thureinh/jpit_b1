@@ -235,6 +235,7 @@
 	      			<div class="form-group">
 	      				@csrf
 		   	  			@method('PUT')
+		   	  			<input type="hidden" name="detail_update" value="false"/>
 						<label for="input0234" class="h5 text-center mx-auto">Vocab Topic</label>
 			        	<input type="text" id="input0234" class="form-control" name="topic" value="{{$kanji->kanji}}">
 			        </div>

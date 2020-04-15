@@ -475,6 +475,13 @@ class ComposerStaticInit81afd69a574e6d90987aaf4034b5cc3b
                 0 => __DIR__ . '/..' . '/scrivo/highlight.php',
             ),
         ),
+        'F' => 
+        array (
+            'Felixkiss\\UniqueWithValidator\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/felixkiss/uniquewith-validator/src',
+            ),
+        ),
     );
 
     public static $classMap = array (
@@ -489,6 +496,8 @@ class ComposerStaticInit81afd69a574e6d90987aaf4034b5cc3b
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\KanjiController' => __DIR__ . '/../..' . '/app/Http/Controllers/KanjiController.php',
+        'App\\Http\\Controllers\\KanjiwordController' => __DIR__ . '/../..' . '/app/Http/Controllers/KanjiwordController.php',
         'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
         'App\\Http\\Controllers\\StudentController' => __DIR__ . '/../..' . '/app/Http/Controllers/StudentController.php',
         'App\\Http\\Controllers\\TeacherController' => __DIR__ . '/../..' . '/app/Http/Controllers/TeacherController.php',
@@ -504,6 +513,7 @@ class ComposerStaticInit81afd69a574e6d90987aaf4034b5cc3b
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Http\\View\\Composers\\TeacherDashboardComposer' => __DIR__ . '/../..' . '/app/Http/View/Composers/TeacherDashboardComposer.php',
         'App\\Kanji' => __DIR__ . '/../..' . '/app/Kanji.php',
         'App\\KanjiWord' => __DIR__ . '/../..' . '/app/KanjiWord.php',
         'App\\Listening' => __DIR__ . '/../..' . '/app/Listening.php',
@@ -514,6 +524,7 @@ class ComposerStaticInit81afd69a574e6d90987aaf4034b5cc3b
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Providers\\ViewServiceProvider' => __DIR__ . '/../..' . '/app/Providers/ViewServiceProvider.php',
         'App\\QAndAe' => __DIR__ . '/../..' . '/app/QAndAe.php',
         'App\\Question' => __DIR__ . '/../..' . '/app/Question.php',
         'App\\Reading' => __DIR__ . '/../..' . '/app/Reading.php',
@@ -1292,6 +1303,9 @@ class ComposerStaticInit81afd69a574e6d90987aaf4034b5cc3b
         'Faker\\Provider\\zh_TW\\Text' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/Provider/zh_TW/Text.php',
         'Faker\\UniqueGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/UniqueGenerator.php',
         'Faker\\ValidGenerator' => __DIR__ . '/..' . '/fzaninotto/faker/src/Faker/ValidGenerator.php',
+        'Felixkiss\\UniqueWithValidator\\RuleParser' => __DIR__ . '/..' . '/felixkiss/uniquewith-validator/src/Felixkiss/UniqueWithValidator/RuleParser.php',
+        'Felixkiss\\UniqueWithValidator\\ServiceProvider' => __DIR__ . '/..' . '/felixkiss/uniquewith-validator/src/Felixkiss/UniqueWithValidator/ServiceProvider.php',
+        'Felixkiss\\UniqueWithValidator\\Validator' => __DIR__ . '/..' . '/felixkiss/uniquewith-validator/src/Felixkiss/UniqueWithValidator/Validator.php',
         'Fideloper\\Proxy\\TrustProxies' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustProxies.php',
         'Fideloper\\Proxy\\TrustedProxyServiceProvider' => __DIR__ . '/..' . '/fideloper/proxy/src/TrustedProxyServiceProvider.php',
         'Fruitcake\\Cors\\CorsServiceProvider' => __DIR__ . '/..' . '/fruitcake/laravel-cors/src/CorsServiceProvider.php',

@@ -64,8 +64,6 @@ class AsyncTable
 	}
 	updateDTRow = (data, arr, parents = []) => {
 			let parentChanged = false;
-			console.log(parents);
-			console.log(data);
 			if(parents.length !== 0)
 			{
 				if(parents[0] !== data[parents[1]])
